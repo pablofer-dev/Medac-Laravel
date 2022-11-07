@@ -1,0 +1,125 @@
+* {
+    list-style: none;
+}
+
+:root {
+    --blanco: white;
+}
+
+header {
+    background-image: url("../img/footer/footer.jpg");
+    color: var(--blanco);
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 1.7rem;
+}
+
+.ch2 {
+    display: none;
+    margin-right: 1rem;
+}
+
+.desplegable {
+    display: none;
+}
+
+.fotoHeader {
+    width: 15vw;
+}
+
+.menus {
+    list-style: none;
+    margin-bottom: 0rem;
+}
+
+.containerLeft {
+    width: 45vw;
+}
+
+.containerRight {
+    width: 45vw;
+}
+
+.hover {
+    color: inherit;
+    color: var(--blanco);
+    
+}
+.ch5 {
+    display: none;
+}
+.hover {
+    background:
+        linear-gradient(to right,
+            rgba(100, 200, 200, 1),
+            rgba(100, 200, 200, 1)),
+        linear-gradient(to right,
+            rgba(255, 0, 0, 1),
+            rgba(255, 0, 180, 1),
+            rgba(0, 100, 200, 1));
+    background-size: 100% 1px, 0 1px;
+    background-position: 100% 100%, 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 400ms;
+    transition: ease-in 0.4s;
+}
+
+.hover:hover {
+    font-size: 1.3rem;
+    background-size: 0 1px, 100% 1px;
+    color: white;
+}
+
+.desplegable {
+    width: 10vw;
+}
+
+@media (max-width: 700px) {
+
+    .containerRight {
+        display: none;
+    }
+
+    .desplegable {
+        display: initial;
+    }
+
+    .icon {
+        cursor: pointer;
+    }
+
+    .containerLeft {
+        text-align: left;
+    }
+
+    .containerHeader {
+        width: 10vw;
+
+    }
+
+    ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    li {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+    .ch2 {
+        display: initial;
+    }
+    #ch:checked~.containerRight {
+        display: block;
+        flex-direction: column;
+        left: 0;
+        position: absolute;
+        top: 5rem;
+        width: 100vw;
+        font-size: 1rem;
+        background-image: url("../img/footer/footer.jpg");
+    }
+
+}

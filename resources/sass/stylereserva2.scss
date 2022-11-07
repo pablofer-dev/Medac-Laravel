@@ -1,0 +1,23 @@
+:root {
+    --negro: black;
+    --gris2: #028A78;
+}
+
+.imagenLogo {
+    text-align: right;
+}
+
+.reserva {
+    border-left: 0.2rem solid black;
+}
+
+.imgCheck {
+    width: 3rem;
+}
+
+.text22 {
+    font-weight: 400;
+}
+.colorboton {
+    background-color: var(--gris2) !important;
+}

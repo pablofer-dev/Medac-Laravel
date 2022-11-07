@@ -1,0 +1,143 @@
+body {
+    background-image: url("../img/reserva/bakground.png");
+    background-size: cover;
+}
+
+:root {
+    --negro: black;
+    --gris2: #585858;
+    --gris3: #a8a8a8;
+    --gris4: #028A78;
+    --blanco: white;
+    --verde: #368E00;
+}
+
+#decoration {
+    color: var(--blanco);
+}
+
+.linea1 {
+    width: 80vw;
+}
+
+.linea2 {
+    width: 70vw;
+}
+
+.logoChinFood,
+.coloresGUIA {
+    width: 50vw;
+}
+
+.logoChinFood {
+    text-align: center;
+}
+
+.coloresGUIA {
+    width: 15vw;
+}
+
+.coloresGUIA2 {
+    width: 35vw;
+}
+
+.cuadrado {
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 0.3rem;
+    margin-right: 1rem;
+}
+
+.containerYellow,
+.containerVerde {
+    margin-bottom: 1rem;
+}
+
+.circulo,
+.circulo2,
+.circulo3,
+.circulo4 {
+    width: 9rem;
+    height: 9rem;
+    border-radius: 50%;
+    border: 0.2rem solid var(--gris2);
+}
+
+.circulo {
+    background-color: var(--verde);
+}
+
+.circulo4 {
+    background-color: var(--gris2);
+}
+
+.circulo2,
+.circulo3 {
+    background-color: var(--gris3);
+}
+
+.celda1,
+.celda2,
+.celda3,
+.celda4 {
+    color: var(--blanco);
+    background-color: var(--gris4);
+    width: 20rem;
+}
+
+.circulo>h2,
+.circulo2>h2,
+.circulo3>h2,
+.circulo4>h2 {
+    color: var(--blanco);
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+@media (max-width: 700px) {
+    .headerFood {
+        flex-direction: column;
+    }
+
+    .coloresGUIA,
+    .coloresGUIA2 {
+        width: 50vw;
+    }
+
+    .coloresGUIA,
+    .coloresGUIA2 {
+        margin-top: 1rem;
+    }
+
+    .circulo>h2,
+    .circulo2>h2,
+    .circulo3>h2,
+    .circulo4>h2 {
+        color: var(--blanco);
+        font-size: 1rem;
+        font-weight: bold;
+    }
+
+    .circulo,
+    .circulo2,
+    .circulo3,
+    .circulo4 {
+        width: 6rem;
+        height: 6rem;
+        border-radius: 50%;
+        flex-direction: column;
+        border: 0.2rem solid var(--negro);
+    }
+
+    .containerVerde,
+    .containerRojo,
+    .containerGris,
+    .containerYellow {
+        display: flex;
+        justify-content: center;
+    }
+
+    .linea1 {
+        display: none;
+    }
+}

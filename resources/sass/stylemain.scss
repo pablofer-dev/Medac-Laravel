@@ -1,0 +1,53 @@
+:root {
+    --negro: black;
+    --gris: rgb(71, 71, 71);
+}
+
+.foto {
+    background-image: url("../img/main/home-ramen.jpg");
+    height: 70rem;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.rightContainerFoto {
+    background-image: url("../img/main/ramen.jpg");
+}
+
+.leftContainerFoto {
+    background-image: url("../img/main/fondo_menu2.jpg");
+}
+
+.rightContainerFoto,
+.leftContainerFoto,
+.foto {
+    background-position-x: center;
+    background-size: cover;
+   
+}
+.foto {
+    background-position-y: center;
+}
+
+.rightContainerMenu,
+.leftContainerMenu,
+.rightContainerFoto,
+.leftContainerFoto {
+    width: 50vw;
+    height: 70vh;
+}
+
+.rightContainerMenu,
+.leftContainerMenu {
+    background-image: url("../img/main/branding.jpg");
+}
+.tituloMenu {
+    font-weight: 600;
+}
+.subtituloMenu {
+    font-weight: 500;
+    color: var(--gris);
+    font-style: italic;
+}

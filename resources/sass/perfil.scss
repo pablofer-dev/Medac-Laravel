@@ -1,0 +1,26 @@
+.reservas {
+    width: 12rem;
+}
+
+.space,
+.datosPerfil {
+    width: 50vw;
+}
+.botonActivar {
+    margin-left: 2rem;
+}
+.descuento {
+    margin-bottom: 12rem;
+}
+@media (max-width: 700px) {
+    .datosCliente {
+        flex-direction: column; 
+    }
+    .datosPerfil {
+        width: 100%;
+        
+    }
+    .space {
+        display: none;
+    }
+}

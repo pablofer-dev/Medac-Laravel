@@ -1,0 +1,56 @@
+:root {
+    --blanco: white;
+}
+
+footer {
+    background-image: url("../img/footer/footer.jpg");
+    color: var(--blanco);
+}
+
+.containerFooter {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.imgFooter {
+    width: 25rem;
+}
+
+.horario {
+    margin: 0.3rem;
+}
+
+.hora {
+    margin: 0rem;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.listaFooter {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.separacion {
+    margin-left: 1rem;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 700px) {
+
+    .containerFooter {
+        display: block;
+        text-align: center;
+    }
+
+    ul {
+        padding: 0rem;
+    }
+    .containerRightFooter {
+        padding-bottom: 2rem;
+    }
+    .listaFooter {
+        list-style: none;
+    }
+}
