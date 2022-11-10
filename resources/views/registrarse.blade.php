@@ -32,30 +32,11 @@
     <link rel="stylesheet" href="/resources/demos/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
-
-
-
+    @extends('layouts/app')
 </head>
 
 <body>
-    <header>
-        <div class="containerHeader">
-                <input type="checkbox" name="check" id="ch" class="ch5">
-                <label for="ch" class="ch2"><i class="fa-sharp fa-solid fa-bars icon fs-5"></i></label>
-            <div class="containerLeft">
-                <a href=""><img src="./img/header/logoTest.png" class="fotoHeader"></a>
-            </div>
-            <div class="containerRight">
-                <ul class="menus">
-                    <li><a href="{{url('/')}}"><span class="hover fs-5">INICIO</span></a></li>
-                    <li><a href="{{url('/')}}" class="hover fs-5">MENU</a></li>
-                    <li><a href="{{url('/reservas')}}" class="hover fs-5">RESERVAR</a></li>
-                    <li><a href="{{ url('/signin') }}" class="hover fs-5">LOGIN</a></li>
-                </ul>
-            </div>
-        </div>
-    </header>
-
+    @section('content')
     <div class="container d-flex justify-content-center align-items-end my-3">
         <div class="img p-3">
             <img src="../img/reserva/logoTest200px.png">
@@ -124,11 +105,12 @@
                 </div>
             </div>
             <div class="centrar d-flex justify-content-center my-5">
-                <button type="submit" class="btn colorboton btn-block mb-4 px-5 py-3"><a href="./reserva3.html"
+                <button type="submit" class="btn colorboton btn-block mb-4 px-5 py-3"><a href=""{{url('/')}}""
                         id="decoration">REGISTRARSE</a></button>
             </div>
         </form>
     </div>
+    @endsection
     
 </body>
 

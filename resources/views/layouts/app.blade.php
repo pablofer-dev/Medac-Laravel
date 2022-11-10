@@ -12,69 +12,53 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-
-    <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <!-- FONTAWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
+    
+    <header>
+        <div class="containerHeader">
+                <input type="checkbox" name="check" id="ch" class="ch5">
+                <label for="ch" class="ch2"><i class="fa-sharp fa-solid fa-bars icon fs-5"></i></label>
+            <div class="containerLeft">
+                <a href="{{url('/')}}"><img src="./img/header/logoTest.png" class="fotoHeader"></a>
             </div>
-        </nav>
-
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
+            <div class="containerRight">
+                <ul class="menus">
+                    <li><a href="{{url('/')}}"><span class="hover fs-5">INICIO</span></a></li>
+                    <li><a href="{{url('/')}}" class="hover fs-5">MENU</a></li>
+                    <li><a href="{{url('/reservas')}}" class="hover fs-5">RESERVAR</a></li>
+                    <li><a href="{{ url('/signin') }}" class="hover fs-5">LOGIN</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    @yield('content')
+    @if (!Request::is('signin') && !Request::is('signup'))
+    <footer>
+        <div class="containerFooter">
+            <div class="containerMiddleFooter">
+                <img src="./img/header/logoTest.png" class="imgFooter">
+            </div>
+            <div class="containerLeftFooter">
+                <ul>
+                    <li class="listaFooter"><i class="fa-solid fa-solid fa-phone fs-6"></i><span class="separacion">+34622734723</span></li>
+                    <li class="listaFooter"><i class="fa-solid fa-envelope fs-6"></i><span class="separacion">pablo76@gmail.com</span></li>
+                    <li class="listaFooter"><i class="fa-solid fa-location-dot fs-6"></i><span class="separacion">C/Bautista</span></li>
+                    <li class="listaFooter"><i class="fa-solid fa-user fs-6"></i><span class="separacion">@CHINFOOD</span></li>
+                </ul>
+            </div>
+            <div class="containerRightFooter">
+                <p class="horario fs-5">HORARIO DE APERTURA</p>
+                <P class="hora">13:00 - 16:00 | 19:30 - 23:00</P>
+            </div>
+        </div>
+    </footer>
+    @endif
+    
 </body>
 </html>

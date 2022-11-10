@@ -32,6 +32,9 @@ Route::get('/reservas-info', function () {
 Route::get('/reservas-confirmacion', function () {
     return view('reserva3');
 });
+Route::get('/perfil', function () {
+    return view('perfil');
+});
 
 Auth::routes();
 

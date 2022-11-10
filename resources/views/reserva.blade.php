@@ -33,28 +33,12 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
 
-
+@extends('layouts/app')
 
 </head>
 
 <body>
-    <header>
-        <div class="containerHeader">
-                <input type="checkbox" name="check" id="ch" class="ch5">
-                <label for="ch" class="ch2"><i class="fa-sharp fa-solid fa-bars icon fs-5"></i></label>
-            <div class="containerLeft">
-                <a href=""><img src="./img/header/logoTest.png" class="fotoHeader"></a>
-            </div>
-            <div class="containerRight">
-                <ul class="menus">
-                    <li><a href="{{url('/')}}"><span class="hover fs-5">INICIO</span></a></li>
-                    <li><a href="{{url('/')}}" class="hover fs-5">MENU</a></li>
-                    <li><a href="{{url('/reservas')}}" class="hover fs-5">RESERVAR</a></li>
-                    <li><a href="{{ url('/signin') }}" class="hover fs-5">LOGIN</a></li>
-                </ul>
-            </div>
-        </div>
-    </header>
+   @section('content')
     <hr class="border border-dark border-bootom linea1">
     <div class="d-flex justify-content-center headerFood">
         <div class="logoChinFood">
@@ -226,25 +210,8 @@
         </div>
 
     </div>
-    <footer>
-        <div class="containerFooter">
-            <div class="containerMiddleFooter">
-                <img src="./img/header/logoTest.png" class="imgFooter">
-            </div>
-            <div class="containerLeftFooter">
-                <ul>
-                    <li class="listaFooter"><i class="fa-solid fa-solid fa-phone fs-6"></i><span class="separacion">+34622734723</span></li>
-                    <li class="listaFooter"><i class="fa-solid fa-envelope fs-6"></i><span class="separacion">pablo76@gmail.com</span></li>
-                    <li class="listaFooter"><i class="fa-solid fa-location-dot fs-6"></i><span class="separacion">C/Bautista</span></li>
-                    <li class="listaFooter"><i class="fa-solid fa-user fs-6"></i><span class="separacion">@CHINFOOD</span></li>
-                </ul>
-            </div>
-            <div class="containerRightFooter">
-                <p class="horario fs-5">HORARIO DE APERTURA</p>
-                <P class="hora">13:00 - 16:00 | 19:30 - 23:00</P>
-            </div>
-        </div>
-    </footer>
+   @endsection
+
 </body>
 
 </html>
