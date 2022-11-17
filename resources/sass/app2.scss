@@ -5,14 +5,16 @@
  * Copyright 2011-2022 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
-@import "./_normalize.scss";
-@import "./_perfil.scss";
-@import "./_stylefooter.scss";
-@import "./_styleheader.scss";
-@import "./_stylemain.scss";
-@import "./_stylereserva.scss";
-@import "./_stylereserva2.scss";
-@import "./_stylereserva3.scss";
+
+ @import "normalize";
+ @import "perfil";
+ @import "stylefooter";
+ @import "styleheader";
+ @import "stylemain";
+ @import "stylereserva";
+ @import "stylereserva2";
+ @import "stylereserva3";
+
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;

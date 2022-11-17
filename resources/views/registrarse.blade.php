@@ -2,7 +2,7 @@
 @section('title')
     REGISTRARSE
 @endsection
-<body>
+
     @section('content')
         <div class="container d-flex justify-content-center align-items-end my-3">
             <div class="img p-3">
@@ -78,7 +78,3 @@
             </form>
         </div>
     @endsection
-
-</body>
-
-</html>

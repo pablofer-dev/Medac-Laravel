@@ -2,7 +2,7 @@
 @section('title')
     RESERVA
 @endsection
-<body>
+
     @section('content')
         <div class="container d-flex justify-content-center align-items-end my-3">
             <div class="img p-3">
@@ -111,6 +111,3 @@
         </div>
     </body>
 @endsection
-</body>
-
-</html>

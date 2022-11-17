@@ -30,6 +30,9 @@ Route::get('/reservas-info', function () {
 Route::get('/reservas-confirmacion', function () {
     return view('reserva3');
 });
+Route::get('/contacto', function () {
+    return view('contacto');
+});
 Route::get('/perfil', function () {
     return view('perfil');
 });
@@ -37,3 +40,4 @@ Route::get('/perfil', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('/contacto', [ContactoController::class, 'store']);

@@ -1,6 +1,16 @@
 // Fonts
 @import url('https://fonts.bunny.net/css?family=Nunito');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
-@import '_app2';
+
+
+
+
+@import 'app2';
+
+
+

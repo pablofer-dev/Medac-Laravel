@@ -2,7 +2,6 @@
 @section('title')
     RESERVA
 @endsection
-<body>
    @section('content')
     <hr class="border border-dark border-bootom linea1">
     <div class="d-flex justify-content-center headerFood">
@@ -176,7 +175,3 @@
 
     </div>
    @endsection
-
-</body>
-
-</html>
