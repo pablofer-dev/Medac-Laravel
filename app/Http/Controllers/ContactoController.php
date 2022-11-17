@@ -36,6 +36,9 @@ class ContactoController extends Controller
     {
         $this->validate($request, [
             'nombre' => 'required | min:3 | max:30',
+            'apellido' => 'required | min:3 | max:30',
+            'email' => 'required | email | confirmed',
+            'email_confirmation' => 'required | email',
         ]);
         $mensaje = "Hemos recibido su mensaje. En breve nos pondremos en contacto";
         return redirect('/contacto')->with('mensaje', $mensaje);
