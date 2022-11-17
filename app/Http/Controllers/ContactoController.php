@@ -34,7 +34,11 @@ class ContactoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'nombre' => 'required | min:3 | max:30',
+        ]);
+        $mensaje = "Hemos recibido su mensaje. En breve nos pondremos en contacto";
+        return redirect('/contacto')->with('mensaje', $mensaje);
     }
 
     /**
