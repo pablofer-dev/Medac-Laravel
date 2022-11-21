@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contacto;
 use Illuminate\Http\Request;
 
 class ContactoController extends Controller
@@ -39,8 +40,15 @@ class ContactoController extends Controller
             'apellido' => 'required | min:3 | max:30',
             'email' => 'required | email | confirmed',
             'email_confirmation' => 'required | email',
+            'mensaje' => 'required | min:3 | max:100',
         ]);
         $mensaje = "Hemos recibido su mensaje. En breve nos pondremos en contacto";
+        Contacto::create([
+            'nombre' => $request->nombre,
+            'apellido' => $request->apellido,
+            'email' => $request->email,
+            'mensaje' => $request->mensaje,
+        ]);
         return redirect('/contacto')->with('mensaje', $mensaje);
     }
 

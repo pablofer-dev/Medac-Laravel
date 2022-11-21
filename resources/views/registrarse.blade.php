@@ -1,80 +1,82 @@
-@extends('layouts/app')
-@section('title')
-    REGISTRARSE
+@extends('layouts.app')
+
+@section('content')
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">{{ __('Register') }}</div>
+                    <p class="text-center">Logearse <a href={{'signin'}}>aquí</a></p>
+                    <div class="card-body">
+                        <form method="POST" action="{{ route('register') }}">
+                            @csrf
+                            <div class="row mb-3">
+                                <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
+                                <div class="col-md-6">
+                                    <input id="name" type="text"
+                                        class="form-control @error('name') is-invalid @enderror" name="name"
+                                        value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                    @error('name')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="email"
+                                    class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="email" type="email"
+                                        class="form-control @error('email') is-invalid @enderror" name="email"
+                                        value="{{ old('email') }}" required autocomplete="email">
+
+                                    @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="password"
+                                    class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+                                <div class="col-md-6">
+                                    <input id="password" type="password"
+                                        class="form-control @error('password') is-invalid @enderror" name="password"
+                                        required autocomplete="new-password">
+                                    @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="password-confirm"
+                                    class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="password-confirm" type="password" class="form-control"
+                                        name="password_confirmation" required autocomplete="new-password">
+                                </div>
+                            </div>
+
+                            <div class="row mb-0">
+                                <div class="col-md-6 offset-md-4">
+                                    <button type="submit" class="btn btn-primary">
+                                        {{ __('Register') }}
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
-
-    @section('content')
-        <div class="container d-flex justify-content-center align-items-end my-3">
-            <div class="img p-3">
-                <img src="../img/reserva/logoTest200px.png">
-            </div>
-
-            <div class="reserva p-3">
-                <h1 class="fs-1 mb-0">REGISTRAR</h1>
-            </div>
-        </div>
-        <hr class="border border-dark border-bootom linea2">
-        <div class="container text-center">
-            <h5>TIENES CUENTA. <a href="{{ url('/signin') }}">LOGUEATE AQUÍ</a></h5>
-        </div>
-        <div class="container fs-4">
-            <form>
-                <div class="row mb-4 my-5">
-                    <div class="col">
-                        <div class="form-outline">
-                            <label class="form-label" for="form6Example1">NOMBRE</label>
-                            <input type="text" id="form6Example1" class="form-control py-3 fs-5" />
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="form-outline">
-                            <label class="form-label" for="form6Example2">APELLIDO</label>
-                            <input type="text" id="form6Example2" class="form-control py-3 fs-5" />
-                        </div>
-                    </div>
-                </div>
-                <div class="row mb-4  my-5">
-                    <div class="col-6">
-                        <div class="form-outline">
-                            <label class="form-label" for="form6Example3">EMAIL</label>
-                            <input type="text" id="form6Example3" class="form-control py-3 fs-5" />
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="row">
-                            <div class="col-6">
-                                <div class="form-outline">
-                                    <label class="form-label" for="form6Example4">TELÉFONO</label>
-                                    <input type="text" id="form6Example4" class="form-control py-3 fs-5" />
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="form-outline">
-                                    <label class="form-label" for="form6Example5">C.P</label>
-                                    <input type="text" id="form6Example5" class="form-control py-3 fs-5" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mb-4 my-5">
-                    <div class="col">
-                        <div class="form-outline">
-                            <label class="form-label" for="form6Example6">PAÍS</label>
-                            <input type="text" id="form6Example6" class="form-control py-3 fs-5" />
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="form-outline">
-                            <label class="form-label" for="form6Example7">FECHA DE NACIMIENTO</label>
-                            <input type="text" id="form6Example7" class="form-control py-3 fs-5" />
-                        </div>
-                    </div>
-                </div>
-                <div class="centrar d-flex justify-content-center my-5">
-                    <button type="submit" class="btn colorboton btn-block mb-4 px-5 py-3"><a
-                            href=""{{ url('/') }}"" id="decoration">REGISTRARSE</a></button>
-                </div>
-            </form>
-        </div>
-    @endsection

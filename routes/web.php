@@ -19,7 +19,7 @@ use App\Http\Controllers\Auth\RegisterController;
 Route::get('/', function () {
     return view('index');
 });
-
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('/signin', [LoginController::class, 'index']);
 Route::get('/signup', [RegisterController::class, 'index']);
 Route::get('/reservas', function () {

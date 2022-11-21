@@ -69,7 +69,19 @@
                     @enderror
                 </div>
             </div>
-
+            <div class="mb-4">
+                <label class="block text-gray-700 font-bold mb-2" for="mensaje">
+                    <p class="text-base">Mensaje</p>
+                </label>
+                <input
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="mensaje" type="text" placeholder="Mensaje" name="mensaje" value={{ old('mensaje') }}>
+                <div class="error bg-rose-900 text-neutral-100">
+                    @error('mensaje')
+                        <p class="tect-center text-lg">{{ $message }}</p>
+                    @enderror
+                </div>
+            </div>
             <button
                 class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">Enviar</button>
         </form>
