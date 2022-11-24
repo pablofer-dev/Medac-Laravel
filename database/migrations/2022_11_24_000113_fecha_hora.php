@@ -20,6 +20,8 @@ return new class extends Migration
 
             $table->bigInteger('hora_id')->unsigned();
             $table->foreign('hora_id')->references('id')->on('hora')->onDelete('cascade');
+
+            $table->string('estado');
         });
     }
 
