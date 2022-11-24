@@ -83,7 +83,7 @@
     <form action="/reservas-info" class="container mt-5">
         <div class="d-flex justify-content-center align-items-center">
             <div class="informacion fs-5">
-                <select name="lenguajes" id="lang">
+                <select name="lenguajes" id="comensales">
                     <option value="comensales">COMENSALES</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -92,25 +92,29 @@
                 </select>
             </div>
             <div class="form-check fs-5 mx-5">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+                <input value="comida" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
+                    checked>
                 <label class="form-check-label" for="flexRadioDefault1">
                     Comida
                 </label>
             </div>
             <div class="form-check fs-5">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                <label class="form-check-label" for="flexRadioDefault2">
+                <input value="cena" class="form-check-input" type="radio" name="flexRadioDefault"
+                    id="flexRadioDefault2">
+                <label class="form-check-label" for="flexRadioDefault2" va>
                     Cena
                 </label>
             </div>
-            <input type="date" name="date" id="date" class="ml-5">
-        </div>
-        <div class="container">
-            <div class="flex-column justify-content-center align-items-center fs-5 text-center my-5">
-                <x-calendar></x-calendar>
-            </div>
+            <div id="datepicker"></div>
         </div>
     </form>
-
+    <div class="container d-flex justify-content-center mt-6">
+        <button class="btn btn-primary" onclick="javascript:prueba()">Buscar hora</button>
+    </div>
+    <div class="container">
+        <div class="flex-column justify-content-center align-items-center fs-5 text-center my-5">
+            <x-calendar></x-calendar>
+        </div>
+    </div>
     <hr class="border border-dark border-bootom linea2">
 @endsection
