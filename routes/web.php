@@ -38,6 +38,10 @@ Route::get('/perfil', function () {
     return view('perfil');
 });
 
+Route::get('/info', function () {
+    return view('info');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

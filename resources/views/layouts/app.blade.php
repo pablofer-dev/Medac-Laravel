@@ -24,10 +24,11 @@
                     <li><a href="{{ url('/') }}" class="hover fs-5">MENU</a></li>
                     <li><a href="{{ url('/contacto') }}" class="hover fs-5">CONTACTO</a></li>
                     <li><a href="{{ url('/reservas') }}" class="hover fs-5">RESERVAR</a></li>
+                    <li><a href="{{ url('/info') }}" class="hover fs-5">INFO</a></li>
                     @if (Auth::check())
-                    <li><a href="{{ url('/logout') }}" class="hover fs-5">LOGOUT</a></li>
+                        <li><a href="{{ url('/logout') }}" class="hover fs-5">LOGOUT</a></li>
                     @else
-                    <li><a href="{{ url('/signin') }}" class="hover fs-5">LOGIN</a></li>
+                        <li><a href="{{ url('/signin') }}" class="hover fs-5">LOGIN</a></li>
                     @endif
                 </ul>
             </div>
@@ -36,7 +37,7 @@
 
     @yield('content')
 
-    @if (!Request::is('signin') && !Request::is('signup'))
+    @if (!Request::is('signin') && !Request::is('signup') && !Request::is('info'))
         <footer>
             <div class="containerFooter">
                 <div class="containerMiddleFooter">
