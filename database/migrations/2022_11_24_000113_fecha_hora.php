@@ -15,13 +15,9 @@ return new class extends Migration
     {
         Schema::create('fecha_hora', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('fecha_id')->unsigned();
-            $table->foreign('fecha_id')->references('id')->on('fecha')->onDelete('cascade');
-
-            $table->bigInteger('hora_id')->unsigned();
-            $table->foreign('hora_id')->references('id')->on('hora')->onDelete('cascade');
-
+            $table->string('fechaHora');
             $table->string('estado');
+            $table->string('eleccion');
         });
     }
 

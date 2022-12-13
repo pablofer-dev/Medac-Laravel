@@ -1,4 +1,4 @@
-window.prueba = function () {
+/* window.prueba = function () {
     const radio = document.querySelector('input[name="flexRadioDefault"]:checked').value;
     let e = document.getElementById("comensales");
     let text = e.options[e.selectedIndex].text;
@@ -11,4 +11,4 @@ window.prueba = function () {
         console.log("error");
     }
    
-}
+} */

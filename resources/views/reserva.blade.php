@@ -80,10 +80,11 @@
         </div>
     </div>
     <hr class="border border-dark border-bootom linea2">
-    <form action="/reservas-info" class="container mt-5">
+    <form action="/reservas" method="post" class="container mt-5">
+        @csrf
         <div class="d-flex justify-content-center align-items-center">
             <div class="informacion fs-5">
-                <select name="lenguajes" id="comensales">
+                <select name="comensales" id="comensales">
                     <option value="comensales">COMENSALES</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -104,13 +105,14 @@
                 <label class="form-check-label" for="flexRadioDefault2" va>
                     Cena
                 </label>
+                <input type="date" name="date" id="date" class="ml-3">
             </div>
-            <div id="datepicker"></div>
+        </div>
+        <div class="container d-flex justify-content-center mt-6">
+            <button class="btn btn-primary">Buscar hora</button>
         </div>
     </form>
-    <div class="container d-flex justify-content-center mt-6">
-        <button class="btn btn-primary" onclick="javascript:prueba()">Buscar hora</button>
-    </div>
+    
     <div class="container">
         <div class="flex-column justify-content-center align-items-center fs-5 text-center my-5">
             <x-calendar></x-calendar>

@@ -1,6 +1,12 @@
-
+@php
+    $data = session('mensaje');
+@endphp
 <div>
-    @for ($i = 0; $i < 10; $i++)
-        <button class="bg-slate-700 px-60 py-3 my-3 text-white">1:34</button>
-    @endfor
+    @if (session()->has('mensaje'))
+        @foreach ($data as $item)
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                {{ $item['hora'] }}
+            </button>
+        @endforeach
+    @endif
 </div>

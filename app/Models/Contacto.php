@@ -9,6 +9,6 @@ class Contacto extends Model
 {
     use HasFactory;
     protected $table = 'contacto';
-    protected $primaryKey = 'id';
-    protected $fillable = ['nombre', 'apellido', 'email', 'mensaje'];
+    protected $primaryKey = 'fecha';
+    protected $fillable = ['estado', 'eleccion'];
 }
