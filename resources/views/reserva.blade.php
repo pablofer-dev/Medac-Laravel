@@ -112,11 +112,25 @@
             <button class="btn btn-primary">Buscar hora</button>
         </div>
     </form>
-    
     <div class="container">
         <div class="flex-column justify-content-center align-items-center fs-5 text-center my-5">
-            <x-calendar></x-calendar>
+            <div>
+                @if (session()->has('mensaje'))
+                    @php
+                        $data = session('mensaje');
+                    @endphp
+                    @foreach ($data[0] as $item)
+                        <button type="submit" name="{{ $item }}" type="button"
+                            class="btn btn-primary">{{ $item }}</button>
+                    @endforeach
+                    @foreach ($data[1] as $item)
+                        <button disabled type="button" class="btn btn-danger">{{ $item }}</button>
+                    @endforeach
+                @endif
+            </div>
+
         </div>
     </div>
+
     <hr class="border border-dark border-bootom linea2">
 @endsection

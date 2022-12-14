@@ -37,7 +37,7 @@
 
     @yield('content')
 
-    @if (!Request::is('signin') && !Request::is('signup') && !Request::is('info'))
+    @if (!Request::is('signin') && !Request::is('signup') && !Request::is('info')&& !Request::is('reservas'))
         <footer>
             <div class="containerFooter">
                 <div class="containerMiddleFooter">

@@ -3,14 +3,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Hora;
-use App\Models\Fecha;
 use App\Models\Reserva;
 use Illuminate\Http\Request;
 
 class ReservaController extends Controller
 {
-    public function store(Request $request)
+    public function find(Request $request)
     {
 
         $this->validate($request, [
@@ -18,14 +16,29 @@ class ReservaController extends Controller
             'flexRadioDefault' => 'required',
             'date' => 'required',
         ]);
-        $hora = Hora::all();
-        $fecha = Fecha::all();
-        if ($request->input('flexRadioDefault') == 'comida') {
-            $hora = $hora->where('fecha', '>=', "18:59:59");
-        } else {
-            $hora = $hora->where('fecha', '<=', "18:59:59");
+
+        $reservasDataBase = Reserva::all();
+        $reservasInput = $request->collect();
+        $horasReserva = [];
+        $horaOcupada = [];
+        foreach ($reservasDataBase as $key) {
+            if ($key['fecha'] == $reservasInput['date']) {
+                if ($key['eleccion'] == 'comida') {
+                    if ($key['estado'] == 'no-reservada') {
+                        array_push($horasReserva, $key['hora']);
+                    } elseif ($key['estado'] == 'reservada') {
+                        array_push($horaOcupada, $key['hora']);
+                    }
+                } elseif ($key['eleccion'] == 'cena') {
+                    if ($key['estado'] == 'no-reservada') {
+                        array_push($horasReserva, $key['hora']);
+                    } elseif ($key['estado'] == 'reservada') {
+                        array_push($horaOcupada, $key['hora']);
+                    }
+                }
+            }
         }
-        return redirect('/reservas')->with('mensaje', $hora);
+        return redirect('/reservas')->with('mensaje', [$horasReserva, $horaOcupada]);
     }
 
     public function index()
@@ -33,7 +46,4 @@ class ReservaController extends Controller
         return view('index');
     }
 
-    public function find($radio, $date)
-    {
-    }
 }

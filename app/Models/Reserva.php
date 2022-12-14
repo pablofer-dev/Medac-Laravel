@@ -10,5 +10,5 @@ class Reserva extends Model
     use HasFactory;
     protected $table = 'fecha_hora';
     protected $primaryKey = 'id';
-    protected $fillable = ['fechaHora','estado','eleccion'];
+    protected $fillable = ['fecha', 'hora', 'estado', 'eleccion'];
 }
