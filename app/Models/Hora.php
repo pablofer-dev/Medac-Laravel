@@ -9,4 +9,8 @@ class Hora extends Model
 {
     use HasFactory;
     protected $table = 'hora';
+    protected $primaryKey = 'id';
+    protected $fillable = [
+        'hora',
+    ];
 }

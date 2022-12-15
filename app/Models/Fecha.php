@@ -9,4 +9,5 @@ class Fecha extends Model
 {
     use HasFactory;
     protected $table = 'fecha';
+    protected $primaryKey = 'id';
 }

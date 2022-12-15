@@ -14,7 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('hora', function (Blueprint $table) {
-            $table->time('hora')->primary();
+            $table->id();
+            $table->time('hora');
+            $table->timestamps();
         });
     }
 

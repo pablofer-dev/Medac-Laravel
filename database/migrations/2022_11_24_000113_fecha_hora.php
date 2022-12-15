@@ -15,12 +15,13 @@ return new class extends Migration
     {
         Schema::create('fecha_hora', function (Blueprint $table) {
             $table->id();
-            $table->date('fecha');
-            $table->time('hora');
-            $table->foreign('fecha')->references('fecha')->on('fecha')->onDelete('cascade');
-            $table->foreign('hora')->references('hora')->on('hora')->onDelete('cascade');
+            $table->date('fk_fecha');
+            $table->unsignedBigInteger('id_hora');
+            $table->foreign('fk_fecha')->references('fecha')->on('fecha')->onDelete('cascade');
+            $table->foreign('id_hora')->references('id')->on('hora')->onDelete('cascade');
             $table->string('estado');
             $table->string('eleccion');
+            $table->timestamps();
         });
     }
 

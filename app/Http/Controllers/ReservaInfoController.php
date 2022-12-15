@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class ReservaInfoController extends Controller
 {
-    public function find(Request $request)
+    public function find($request)
     {
         dd($request->all());
     }

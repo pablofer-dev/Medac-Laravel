@@ -32,8 +32,11 @@ return new class extends Migration
             $table->bigInteger('mesa_id')->unsigned();
             $table->foreign('mesa_id')->references('id')->on('mesa')->onDelete('cascade');
 
-            $table->date('fecha_id');
-            $table->foreign('fecha_id')->references('fecha')->on('fecha')->onDelete('cascade');
+            $table->date('fecha_fk');
+            $table->foreign('fecha_fk')->references('fecha')->on('fecha')->onDelete('cascade');
+
+            $table->unsignedBigInteger('hora_id');
+            $table->foreign('hora_id')->references('id')->on('hora')->onDelete('cascade');
         });
     }
 

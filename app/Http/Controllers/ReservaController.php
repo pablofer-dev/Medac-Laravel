@@ -3,47 +3,41 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Reserva;
+use App\Models\FechaHora;
+use App\Models\Hora;
 use Illuminate\Http\Request;
 
 class ReservaController extends Controller
 {
     public function find(Request $request)
     {
-
         $this->validate($request, [
             'comensales' => 'required',
             'flexRadioDefault' => 'required',
             'date' => 'required',
         ]);
-
-        $reservasDataBase = Reserva::all();
         $reservasInput = $request->collect();
-        $horasReserva = [];
-        $horaOcupada = [];
-        foreach ($reservasDataBase as $key) {
-            if ($key['fecha'] == $reservasInput['date']) {
-                if ($key['eleccion'] == 'comida') {
-                    if ($key['estado'] == 'no-reservada') {
-                        array_push($horasReserva, $key['hora']);
-                    } elseif ($key['estado'] == 'reservada') {
-                        array_push($horaOcupada, $key['hora']);
-                    }
-                } elseif ($key['eleccion'] == 'cena') {
-                    if ($key['estado'] == 'no-reservada') {
-                        array_push($horasReserva, $key['hora']);
-                    } elseif ($key['estado'] == 'reservada') {
-                        array_push($horaOcupada, $key['hora']);
-                    }
-                }
-            }
+        $result = FechaHora::select('*')->where('fk_fecha', $reservasInput['date'])->get();
+        $data = [];
+
+        foreach ($result as $key) {
+            array_push(
+                $data,
+                [
+                    'id' => $key->id,
+                    'fk_fecha' => $key->fk_fecha,
+                    'id_hora' => Hora::select('hora')->where('id', $key->id_hora)->get(),
+                    'estado' => $key->estado,
+                    'eleccion' => $key->eleccion,
+                ]
+            );
         }
-        return redirect('/reservas')->with('mensaje', [$horasReserva, $horaOcupada]);
+
+        return redirect('/reservas')->with('mensaje', $data)->with('mensaje2', $reservasInput);
     }
 
     public function index()
     {
         return view('index');
     }
-
 }

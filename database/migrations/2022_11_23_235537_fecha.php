@@ -14,7 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('fecha', function (Blueprint $table) {
+          
             $table->date('fecha')->primary();
+            $table->timestamps();
         });
     }
 

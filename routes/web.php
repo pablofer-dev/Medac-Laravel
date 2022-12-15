@@ -50,4 +50,4 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('/contacto', [ContactoController::class, 'store']);
 Route::post('/reservas', [ReservaController::class, 'find']);
-Route::post('/reservas-info', [ReservaInfoController::class, 'find']);
+Route::get('/reservas-info/{id}', [ReservaInfoController::class, 'find']);

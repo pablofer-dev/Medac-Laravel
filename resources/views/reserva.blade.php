@@ -116,16 +116,31 @@
         <div class="flex-column justify-content-center align-items-center fs-5 text-center my-5">
             <div>
                 @if (session()->has('mensaje'))
-                    @php
-                        $data = session('mensaje');
-                    @endphp
-                    @foreach ($data[0] as $item)
-                        <button type="submit" name="{{ $item }}" type="button"
-                            class="btn btn-primary">{{ $item }}</button>
-                    @endforeach
-                    @foreach ($data[1] as $item)
-                        <button disabled type="button" class="btn btn-danger">{{ $item }}</button>
-                    @endforeach
+                    @if (session()->has('mensaje2'))
+                        @php
+                            $dataBase = session('mensaje');
+                            $dataInput = session('mensaje2');
+                        @endphp
+                        @foreach ($dataBase as $item)
+                            @if ($dataInput['flexRadioDefault'] == 'comida' && $item['eleccion'] == 'comida')
+                                @if ($item['estado'] == 'no-reservada')
+                                    <a href="{{ route('reservas-info') }}"><button type="button"
+                                            class="btn btn-primary">{{ $item['id_hora'][0]['hora'] }}</button></a>
+                                @elseif($item['estado'] == 'reservada')
+                                    <button disabled type="button"
+                                        class="btn btn-warning">{{ $item['id_hora'][0]['hora'] }}</button>
+                                @endif
+                            @elseif ($dataInput['flexRadioDefault'] == 'cena' && $item['eleccion'] == 'cena')
+                                @if ($item['estado'] == 'no-reservada')
+                                    <button type="button"
+                                        class="btn btn-primary">{{ $item['id_hora'][0]['hora'] }}</button>
+                                @elseif($item['estado'] == 'reservada')
+                                    <button disabled type="button"
+                                        class="btn btn-warning">{{ $item['id_hora'][0]['hora'] }}</button>
+                                @endif
+                            @endif
+                        @endforeach
+                    @endif
                 @endif
             </div>
 
