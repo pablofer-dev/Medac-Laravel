@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('creadit_card', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre_titular', 12);
-            $table->date('fecha_caducidad');
-            $table->integer('cvv');
+            $table->string('nombre_titular', 40);
+            $table->string('serial');
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 

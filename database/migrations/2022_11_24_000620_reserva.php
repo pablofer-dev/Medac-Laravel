@@ -16,27 +16,18 @@ return new class extends Migration
         Schema::create('reserva', function (Blueprint $table) {
             $table->id();
             $table->integer('numero_persona');
-
-            $table->bigInteger('users_id')->unsigned();
-            $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
-
+            $table->bigInteger('users_id')->unsigned()->nullable();
             $table->bigInteger('menu_id')->unsigned();
             $table->foreign('menu_id')->references('id')->on('menu')->onDelete('cascade');
-
-            $table->bigInteger('tarjeta_creadito_id')->unsigned();
-            $table->foreign('tarjeta_creadito_id')->references('id')->on('creadit_card')->onDelete('cascade');
-
-            $table->bigInteger('usuarionr_id')->unsigned();
-            $table->foreign('usuarionr_id')->references('id')->on('usuarionr')->onDelete('cascade');
-
+            $table->string('tarjeta_creadito_id')->nullable();
+            $table->bigInteger('usuarionr_id')->unsigned()->nullable();
             $table->bigInteger('mesa_id')->unsigned();
             $table->foreign('mesa_id')->references('id')->on('mesa')->onDelete('cascade');
-
             $table->date('fecha_fk');
             $table->foreign('fecha_fk')->references('fecha')->on('fecha')->onDelete('cascade');
-
             $table->unsignedBigInteger('hora_id');
             $table->foreign('hora_id')->references('id')->on('hora')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 

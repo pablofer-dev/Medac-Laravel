@@ -47,6 +47,10 @@
     <div class="container fs-5">
         <div class="informacion text-left">
             @isset($fecha)
+                @php
+                    session()->put('comensales', $comensales);
+                    session()->put('fecha', $fecha[0]['fk_fecha']);
+                @endphp
                 <div class="fecha"><i class="fa-solid fa-calendar-days"><span class="p-2 text22">{{ $fecha[0]['fk_fecha'] }},
                             {{ $hora[0]['hora'] }}.</span></i>
                 </div>

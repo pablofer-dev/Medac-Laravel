@@ -11,6 +11,7 @@ class ReservaInfoController extends Controller
 {
     public function find($id, $comensales)
     {
+        session()->put('id', $id);
         $fecha_fk = FechaHora::select('fk_fecha')->where('id', $id)->get();
         $id_hora = FechaHora::select('id_hora')->where('id', $id)->get();
         $hora = Hora::select('hora')->where('id', $id_hora[0]['id_hora'])->get();

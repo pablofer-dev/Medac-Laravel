@@ -133,7 +133,7 @@
                                 @endif
                             @elseif ($dataInput['flexRadioDefault'] == 'cena' && $item['eleccion'] == 'cena')
                                 @if ($item['estado'] == 'no-reservada')
-                                    <a href="{{ url('reservas-info') . '/' . $item['id'] }}"><button type="button"
+                                    <a href="{{ url('reservas-info') . '/' . $item['id'] . $dataInput['comensales'] }}"><button type="button"
                                             class="btn btn-primary">{{ $item['id_hora'][0]['hora'] }}</button></a>
                                 @elseif($item['estado'] == 'reservada')
                                     <button disabled type="button"
