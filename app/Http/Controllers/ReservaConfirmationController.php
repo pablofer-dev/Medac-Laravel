@@ -59,7 +59,7 @@ class ReservaConfirmationController extends Controller
                 'hora_id' => $resultHoraId[0]['id'],
             ]);
 
-            echo "reservado";
+            return redirect('/reservas-confirmacion')->with('mensaje', 2);
         }
     }
 
