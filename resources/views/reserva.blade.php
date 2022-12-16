@@ -124,7 +124,8 @@
                         @foreach ($dataBase as $item)
                             @if ($dataInput['flexRadioDefault'] == 'comida' && $item['eleccion'] == 'comida')
                                 @if ($item['estado'] == 'no-reservada')
-                                    <a href="{{ route('reservas-info') }}"><button type="button"
+                                    <a href="{{ url('reservas-info') . '/' . $item['id'] . $dataInput['comensales'] }}"><button
+                                            type="button"
                                             class="btn btn-primary">{{ $item['id_hora'][0]['hora'] }}</button></a>
                                 @elseif($item['estado'] == 'reservada')
                                     <button disabled type="button"
@@ -132,8 +133,8 @@
                                 @endif
                             @elseif ($dataInput['flexRadioDefault'] == 'cena' && $item['eleccion'] == 'cena')
                                 @if ($item['estado'] == 'no-reservada')
-                                    <button type="button"
-                                        class="btn btn-primary">{{ $item['id_hora'][0]['hora'] }}</button>
+                                    <a href="{{ url('reservas-info') . '/' . $item['id'] }}"><button type="button"
+                                            class="btn btn-primary">{{ $item['id_hora'][0]['hora'] }}</button></a>
                                 @elseif($item['estado'] == 'reservada')
                                     <button disabled type="button"
                                         class="btn btn-warning">{{ $item['id_hora'][0]['hora'] }}</button>

@@ -5,14 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Hora extends Model
+class UsuarioNR extends Model
 {
     use HasFactory;
-    protected $table = 'hora';
+    protected $table = 'usuarionr';
     protected $primaryKey = 'id';
     protected $fillable = [
-        'hora',
-        'created_at',
-        'updated_at',
+        'nombre',
+        'apellido',
+        'email',
+        'telefono',
+        'dni',
     ];
 }

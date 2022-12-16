@@ -19,7 +19,8 @@ return new class extends Migration
             $table->string('apellido');
             $table->string('email');
             $table->integer('telefono');
-            $table->string('dni');
+            $table->string('dni')->nullable();
+            $table->timestamps();
         });
     }
 
