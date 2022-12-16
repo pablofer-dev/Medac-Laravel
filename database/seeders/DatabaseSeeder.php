@@ -18,5 +18,6 @@ class DatabaseSeeder extends Seeder
         $this->call(FechaSeeder::class);
         $this->call(HoraSeeder::class);
         $this->call(FechaHoraSeeder::class);
+        $this->call(MenuSeeder::class);
     }
 }

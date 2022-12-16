@@ -2,11 +2,13 @@
 
 namespace Database\Seeders;
 
-use App\Models\Hora;
+
+
+use App\Models\Menu;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-class HoraSeeder extends Seeder
+class MenuSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,6 +17,6 @@ class HoraSeeder extends Seeder
      */
     public function run()
     {
-        Hora::factory(3)->create();
+        Menu::factory(3)->create();
     }
 }

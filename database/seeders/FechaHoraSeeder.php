@@ -15,6 +15,6 @@ class FechaHoraSeeder extends Seeder
      */
     public function run()
     {
-        FechaHora::factory(5)->create();
+        FechaHora::factory(3)->create();
     }
 }
