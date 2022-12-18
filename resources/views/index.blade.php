@@ -4,6 +4,11 @@
 @endsection
 
 @section('content')
+    @if (session()->has('mensaje'))
+        <div class="alert alert-success w-11/12 mx-auto mt-3" role="alert">
+            {{ session('mensaje') }}
+        </div>
+    @endif
     <div class="foto">
     </div>
     <div class="d-flex justify-content-center mt-3">

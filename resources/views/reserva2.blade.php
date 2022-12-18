@@ -71,114 +71,232 @@
         </div>
     </div>
     <div class="container fs-4">
-        <form action="/reservas-confirmacion" method="POST">
-            @csrf
-            <div class="row mb-4 my-5">
-                <div class="col">
-                    <div class="form-outline">
-                        <label class="form-label" for="form6Example1">NOMBRE</label>
-                        <input type="text" id="form6Example1" name="nombre" class="form-control py-3 fs-5" />
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-outline">
-                        <label class="form-label" for="form6Example2">APELLIDO</label>
-                        <input type="text" id="form6Example2" name="apellido" class="form-control py-3 fs-5" />
-                    </div>
-                </div>
-            </div>
-            <div class="row mb-4  my-5">
-                <div class="col-6">
-                    <div class="form-outline">
-                        <label class="form-label" for="form6Example3">EMAIL</label>
-                        <input type="text" id="form6Example3" name="email" class="form-control py-3 fs-5" />
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="form-outline">
-                                <label class="form-label" for="form6Example4">TELÉFONO</label>
-                                <input type="text" id="form6Example4" name="telefono" class="form-control py-3 fs-5" />
-                            </div>
+        @if (Auth::user())
+            <form action="/reservas-confirmacion" method="POST">
+                @csrf
+                <div class="row mb-4 my-5">
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example1">NOMBRE</label>
+                            <input type="text" id="form6Example1" name="nombre" class="form-control py-3 fs-5"
+                                value="{{ Auth::user()->name }}" />
                         </div>
-                        <div class="col-6">
-                            <div class="form-outline">
-                                <label class="form-label" for="form6Example5">C.P</label>
-                                <input type="text" id="form6Example5" name="cp" class="form-control py-3 fs-5" />
-                            </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example2">APELLIDO</label>
+                            <input type="text" id="form6Example2" name="apellido" class="form-control py-3 fs-5"
+                                value="{{ Auth::user()->apellido }}" />
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row mb-4 my-5">
-                <div class="col">
-                    <div class="form-outline">
-                        <label class="form-label" for="form6Example6">PAÍS</label>
-                        <input type="text" id="form6Example6" name="pais" class="form-control py-3 fs-5" />
+                <div class="row mb-4  my-5">
+                    <div class="col-6">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example3">EMAIL</label>
+                            <input type="text" id="form6Example3" name="email" class="form-control py-3 fs-5"
+                                value="{{ Auth::user()->email }}" />
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-outline">
+                                    <label class="form-label" for="form6Example4">TELÉFONO</label>
+                                    <input type="text" id="form6Example4" name="telefono" class="form-control py-3 fs-5"
+                                        value="{{ Auth::user()->telefono }}" />
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-outline">
+                                    <label class="form-label" for="form6Example5">C.P</label>
+                                    <input type="text" id="form6Example5" name="cp"
+                                        class="form-control py-3 fs-5" />
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="form-outline">
-                        <label class="form-label" for="form6Example7">FECHA DE NACIMIENTO</label>
-                        <input type="date" id="form6Example7" name="nacimiento" class="form-control py-3 fs-5" />
+                <div class="row mb-4 my-5">
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example6">PAÍS</label>
+                            <input type="text" id="form6Example6" name="pais" class="form-control py-3 fs-5" />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example7">FECHA DE NACIMIENTO</label>
+                            <input type="date" id="form6Example7" name="nacimiento" class="form-control py-3 fs-5" />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example8">TARJETA DE CREDITO</label>
+                            <input type="text" id="form6Example8" name="card" class="form-control py-3 fs-5" />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example9">CVV</label>
+                            <input type="number" id="form6Example9" class="form-control py-3 fs-5" />
+                        </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="form-outline">
-                        <label class="form-label" for="form6Example8">TARJETA DE CREDITO</label>
-                        <input type="text" id="form6Example8" name="card" class="form-control py-3 fs-5" />
+                <p class="mb-2">¿Tiene algún comensal alguna intolerancia/alergia?</p>
+                <div class="radioButtoms d-flex">
+                    <div class="form-check">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Si
+                        </label>
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                    </div>
+                    <div class="form-check mx-5">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            No
+                        </label>
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
+                            checked>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="form-outline">
-                        <label class="form-label" for="form6Example9">CVV</label>
-                        <input type="number" id="form6Example9" class="form-control py-3 fs-5" />
-                    </div>
+                <div class="reservaCoste text-center">
+                    <p class="fw-bold fs-5 my-4">Realizar la reserva costará 10€/persona</p>
                 </div>
-            </div>
-            <p class="mb-2">¿Tiene algún comensal alguna intolerancia/alergia?</p>
-            <div class="radioButtoms d-flex">
                 <div class="form-check">
-                    <label class="form-check-label" for="flexRadioDefault1">
-                        Si
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Acepto las condiciones de uso, política de privacidad y aviso legal.
                     </label>
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
                 </div>
-                <div class="form-check mx-5">
-                    <label class="form-check-label" for="flexRadioDefault2">
-                        No
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Consiento el tratamiento de datos personales.
                     </label>
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
-                        checked>
                 </div>
-            </div>
-            <div class="reservaCoste text-center">
-                <p class="fw-bold fs-5 my-4">Realizar la reserva costará 10€/persona</p>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Acepto las condiciones de uso, política de privacidad y aviso legal.
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Consiento el tratamiento de datos personales.
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Consiento la recepción de comunicaciones del restaurante por e-mail y/o SMS con fines comerciales.
-                </label>
-            </div>
-            <div class="centrar d-flex justify-content-center my-5">
-                <button
-                    class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">Enviar</button>
-            </div>
-        </form>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Consiento la recepción de comunicaciones del restaurante por e-mail y/o SMS con fines comerciales.
+                    </label>
+                </div>
+                <div class="centrar d-flex justify-content-center my-5">
+                    <button
+                        class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">Enviar</button>
+                </div>
+            </form>
+        @else
+            <form action="/reservas-confirmacion" method="POST">
+                @csrf
+                <div class="row mb-4 my-5">
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example1">NOMBRE</label>
+                            <input type="text" id="form6Example1" name="nombre" class="form-control py-3 fs-5" />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example2">APELLIDO</label>
+                            <input type="text" id="form6Example2" name="apellido" class="form-control py-3 fs-5" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-4  my-5">
+                    <div class="col-6">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example3">EMAIL</label>
+                            <input type="text" id="form6Example3" name="email" class="form-control py-3 fs-5" />
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-outline">
+                                    <label class="form-label" for="form6Example4">TELÉFONO</label>
+                                    <input type="text" id="form6Example4" name="telefono"
+                                        class="form-control py-3 fs-5" />
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-outline">
+                                    <label class="form-label" for="form6Example5">C.P</label>
+                                    <input type="text" id="form6Example5" name="cp"
+                                        class="form-control py-3 fs-5" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-4 my-5">
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example6">PAÍS</label>
+                            <input type="text" id="form6Example6" name="pais" class="form-control py-3 fs-5" />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example7">FECHA DE NACIMIENTO</label>
+                            <input type="date" id="form6Example7" name="nacimiento" class="form-control py-3 fs-5" />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example8">TARJETA DE CREDITO</label>
+                            <input type="text" id="form6Example8" name="card" class="form-control py-3 fs-5" />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example9">CVV</label>
+                            <input type="number" id="form6Example9" class="form-control py-3 fs-5" />
+                        </div>
+                    </div>
+                </div>
+                <p class="mb-2">¿Tiene algún comensal alguna intolerancia/alergia?</p>
+                <div class="radioButtoms d-flex">
+                    <div class="form-check">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Si
+                        </label>
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                    </div>
+                    <div class="form-check mx-5">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            No
+                        </label>
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
+                            checked>
+                    </div>
+                </div>
+                <div class="reservaCoste text-center">
+                    <p class="fw-bold fs-5 my-4">Realizar la reserva costará 10€/persona</p>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Acepto las condiciones de uso, política de privacidad y aviso legal.
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Consiento el tratamiento de datos personales.
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Consiento la recepción de comunicaciones del restaurante por e-mail y/o SMS con fines comerciales.
+                    </label>
+                </div>
+                <div class="centrar d-flex justify-content-center my-5">
+                    <button
+                        class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">Enviar</button>
+                </div>
+            </form>
+        @endif
 
     </div>
 @endsection

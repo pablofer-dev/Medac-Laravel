@@ -2,6 +2,7 @@
 @section('title')
     PERFIL
 @endsection
+@if (Auth::check())
 
     @section('content')
         <div class="container d-flex justify-content-center align-items-end my-3">
@@ -19,7 +20,7 @@
 
             </div>
             <div class="textoPefil">
-                <h1 class="my-5">Bienvenido, Pablo Fernández</h1>
+                <h1 class="my-5">Bienvenido, {{Auth::user()->name . " ".Auth::user()->apellido}}</h1>
             </div>
         </div>
         <hr class="border border-dark border-bootom linea2">
@@ -30,32 +31,21 @@
                     <div class="textoDatos m-4 mt-0 mb-0 mr-0">
                         <div class="comensales d-flex justify-content-center">
                             <h5 class="mb-1 ">NOMBRE: </h5>
-                            <h5 class="m-3 mt-0 mb-1">Pablo</h5>
+                            <h5 class="m-3 mt-0 mb-1">{{Auth::user()->name}}</h5>
                         </div>
                         <div class="comensales d-flex justify-content-center">
                             <h5 class="mb-1">APELLIDO: </h5>
-                            <h5 class="m-3 mt-0 mb-1">Fernández López</h5>
+                            <h5 class="m-3 mt-0 mb-1">{{Auth::user()->apellido}}</h5>
                         </div>
                         <div class="comensales d-flex justify-content-center">
                             <h5 class="mb-1">EMAIL: </h5>
-                            <h5 class="m-3 mt-0 mb-1">pablofern@gmail.com</h5>
+                            <h5 class="m-3 mt-0 mb-1">{{Auth::user()->email}}</h5>
                         </div>
                         <div class="comensales d-flex justify-content-center">
                             <h5 class="mb-1">TELÉFONO: </h5>
-                            <h5 class="m-3 mt-0 mb-1">6567385934</h5>
+                            <h5 class="m-3 mt-0 mb-1">{{Auth::user()->telefono}}</h5>
                         </div>
-                        <div class="comensales d-flex justify-content-center">
-                            <h5 class="mb-1">CP: </h5>
-                            <h5 class="m-3 mt-0 mb-1">14010</h5>
-                        </div>
-                        <div class="comensales d-flex justify-content-center">
-                            <h5 class="mb-1">PAÍS: </h5>
-                            <h5 class="m-3 mt-0 mb-1">España</h5>
-                        </div>
-                        <div class="comensales d-flex justify-content-center">
-                            <h5 class="mb-1">FECHA DE NACIMIENTO: </h5>
-                            <h5 class="m-3 mt-0 mb-1">23-04-2001</h5>
-                        </div>
+                       
                     </div>
                 </div>
             </div>
@@ -158,3 +148,4 @@
             </div>
         </div>
     @endsection
+@endif
