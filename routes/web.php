@@ -6,6 +6,7 @@ use App\Http\Controllers\ReservaInfoController;
 use App\Http\Controllers\ContactoController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\ReservaConfirmationController;
 
 /*
@@ -41,10 +42,6 @@ Route::get('/contacto', function () {
     return view('contacto');
 });
 
-Route::get('/perfil', function () {
-    return view('perfil');
-});
-
 Route::get('/info', function () {
     return view('info');
 });
@@ -53,6 +50,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('/contacto', [ContactoController::class, 'store']);
+Route::get('/perfil', [PerfilController::class, 'find']);
 Route::post('/reservas-confirmacion', [ReservaConfirmationController::class, 'store']);
 Route::post('/reservas', [ReservaController::class, 'find']);
 Route::get('/reservas-info/{id}{comensales}', [ReservaInfoController::class, 'find']);

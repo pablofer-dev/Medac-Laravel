@@ -26,6 +26,7 @@
                     <li><a href="{{ url('/reservas') }}" class="hover fs-5">RESERVAR</a></li>
                     <li><a href="{{ url('/info') }}" class="hover fs-5">INFO</a></li>
                     @if (Auth::check())
+                        <li><a href="{{ url('/perfil') }}" class="hover fs-5">PERFIL</a></li>
                         <li><a href="{{ url('/logout') }}" class="hover fs-5">LOGOUT</a></li>
                     @else
                         <li><a href="{{ url('/signin') }}" class="hover fs-5">LOGIN</a></li>
@@ -37,7 +38,7 @@
 
     @yield('content')
 
-    @if (!Request::is('signin') && !Request::is('signup') && !Request::is('info')&& !Request::is('reservas'))
+    @if (!Request::is('signin') && !Request::is('signup') && !Request::is('info') && !Request::is('reservas'))
         <footer>
             <div class="containerFooter">
                 <div class="containerMiddleFooter">

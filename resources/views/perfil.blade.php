@@ -20,7 +20,7 @@
 
             </div>
             <div class="textoPefil">
-                <h1 class="my-5">Bienvenido, {{Auth::user()->name . " ".Auth::user()->apellido}}</h1>
+                <h1 class="my-5">Bienvenido, {{ Auth::user()->name . ' ' . Auth::user()->apellido }}</h1>
             </div>
         </div>
         <hr class="border border-dark border-bootom linea2">
@@ -31,21 +31,21 @@
                     <div class="textoDatos m-4 mt-0 mb-0 mr-0">
                         <div class="comensales d-flex justify-content-center">
                             <h5 class="mb-1 ">NOMBRE: </h5>
-                            <h5 class="m-3 mt-0 mb-1">{{Auth::user()->name}}</h5>
+                            <h5 class="m-3 mt-0 mb-1">{{ Auth::user()->name }}</h5>
                         </div>
                         <div class="comensales d-flex justify-content-center">
                             <h5 class="mb-1">APELLIDO: </h5>
-                            <h5 class="m-3 mt-0 mb-1">{{Auth::user()->apellido}}</h5>
+                            <h5 class="m-3 mt-0 mb-1">{{ Auth::user()->apellido }}</h5>
                         </div>
                         <div class="comensales d-flex justify-content-center">
                             <h5 class="mb-1">EMAIL: </h5>
-                            <h5 class="m-3 mt-0 mb-1">{{Auth::user()->email}}</h5>
+                            <h5 class="m-3 mt-0 mb-1">{{ Auth::user()->email }}</h5>
                         </div>
                         <div class="comensales d-flex justify-content-center">
                             <h5 class="mb-1">TELÉFONO: </h5>
-                            <h5 class="m-3 mt-0 mb-1">{{Auth::user()->telefono}}</h5>
+                            <h5 class="m-3 mt-0 mb-1">{{ Auth::user()->telefono }}</h5>
                         </div>
-                       
+
                     </div>
                 </div>
             </div>
@@ -62,30 +62,20 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row" class="reservas">1</th>
-                                <td class="reservas">5421234D</td>
-                                <td class="reservas">23-03-2022</td>
-                                <td class="reservas"><a href="#"><span class="material-symbols-outlined">
-                                            description
-                                        </span></a></td>
-                            </tr>
-                            <tr>
-                                <th scope="row" class="reservas">2</th>
-                                <td class="reservas">4321134D</td>
-                                <td class="reservas">12-06-2022</td>
-                                <td class="reservas"><a href="#"><span class="material-symbols-outlined">
-                                            description
-                                        </span></a></td>
-                            </tr>
-                            <tr>
-                                <th scope="row" class="reservas">3</th>
-                                <td class="reservas">1231444D</td>
-                                <td class="reservas">02-06-2022</td>
-                                <td class="reservas"><a href="#"><span class="material-symbols-outlined">
-                                            description
-                                        </span></a></td>
-                            </tr>
+                            @isset($result)
+                                @php
+                                    $cont = 1;
+                                @endphp
+                                @foreach ($result as $item)
+                                    <th scope="row" class="reservas">{{ $cont }}</th>
+                                    <td class="reservas">{{ $item->id }}</td>
+                                    <td class="reservas">{{ $item->fecha_fk }}</td>
+                                    <td class="reservas"><a href="#"><span class="material-symbols-outlined">
+                                                description
+                                            </span></a></td>
+                                @endforeach
+                            @endisset
+                            
                         </tbody>
                     </table>
                 </div>

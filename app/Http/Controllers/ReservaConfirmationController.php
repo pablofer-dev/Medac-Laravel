@@ -52,7 +52,6 @@ class ReservaConfirmationController extends Controller
             $affected = DB::table('fecha_hora')
                 ->where('id', Session::get('id'))
                 ->update(['estado' => 'reservado']);
-            dd($affected);
         } else {
             /* Usuario No Registrado */
             $usuarioNR = UsuarioNR::create([
@@ -81,9 +80,8 @@ class ReservaConfirmationController extends Controller
             $affected = DB::table('fecha_hora')
                 ->where('id', Session::get('id'))
                 ->update(['estado' => 'reservado']);
-            dd($affected);
         }
-        return redirect('/')->with('mensaje', "Reserva realizada con sticfación");
+        return redirect('/')->with('mensaje', "Reserva realizada con saticfación");
     }
 
     public function index()
