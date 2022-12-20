@@ -42,7 +42,7 @@ class ReservaConfirmationController extends Controller
             $reserva = Reserva::create([
                 'numero_persona' => Session::get('comensales'),
                 'users_id' => Auth::user()->id,
-                'menu_id' => 1,
+                'menu_id' => $request->menu,
                 'tarjeta_creadito_id' => $request->card,
                 'usuarionr_id' => null,
                 'mesa_id' => $mesa->id,
@@ -51,7 +51,7 @@ class ReservaConfirmationController extends Controller
             ]);
             $affected = DB::table('fecha_hora')
                 ->where('id', Session::get('id'))
-                ->update(['estado' => 'reservado']);
+                ->update(['estado' => 'reservada']);
         } else {
             /* Usuario No Registrado */
             $usuarioNR = UsuarioNR::create([
@@ -70,7 +70,7 @@ class ReservaConfirmationController extends Controller
             $reserva = Reserva::create([
                 'numero_persona' => Session::get('comensales'),
                 'users_id' => null,
-                'menu_id' => 1,
+                'menu_id' => $request->menu,
                 'tarjeta_creadito_id' => $request->card,
                 'usuarionr_id' => $usuarioNR->id,
                 'mesa_id' => $mesa->id,
@@ -79,7 +79,7 @@ class ReservaConfirmationController extends Controller
             ]);
             $affected = DB::table('fecha_hora')
                 ->where('id', Session::get('id'))
-                ->update(['estado' => 'reservado']);
+                ->update(['estado' => 'reservada']);
         }
         return redirect('/')->with('mensaje', "Reserva realizada con saticfación");
     }

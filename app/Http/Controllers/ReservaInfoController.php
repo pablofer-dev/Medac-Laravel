@@ -3,9 +3,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\FechaHora;
 use App\Models\Hora;
-use Illuminate\Http\Request;
+use App\Models\Menu;
+use App\Models\FechaHora;
+use App\Http\Controllers\Controller;
 
 class ReservaInfoController extends Controller
 {
@@ -15,7 +16,8 @@ class ReservaInfoController extends Controller
         $fecha_fk = FechaHora::select('fk_fecha')->where('id', $id)->get();
         $id_hora = FechaHora::select('id_hora')->where('id', $id)->get();
         $hora = Hora::select('hora')->where('id', $id_hora[0]['id_hora'])->get();
-        return view('reserva2', ['fecha' => $fecha_fk, 'comensales' => $comensales, 'hora' => $hora]);
+        $menus = Menu::all();
+        return view('reserva2', ['fecha' => $fecha_fk, 'comensales' => $comensales, 'hora' => $hora, 'menus' => $menus]);
     }
 
     public function index()

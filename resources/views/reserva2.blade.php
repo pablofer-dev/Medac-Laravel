@@ -142,6 +142,17 @@
                             <input type="number" id="form6Example9" class="form-control py-3 fs-5" />
                         </div>
                     </div>
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example10">MENU</label>
+                        </div>
+                        <select name="menu" class="p-4">
+                            @foreach ($menus as $item)
+                                <option value="{{ $item['id'] }}" name="{{ $item['id'] }}">{{ $item['nombre'] }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
                 <p class="mb-2">¿Tiene algún comensal alguna intolerancia/alergia?</p>
                 <div class="radioButtoms d-flex">
@@ -253,6 +264,17 @@
                             <input type="number" id="form6Example9" class="form-control py-3 fs-5" />
                         </div>
                     </div>
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example10">MENU</label>
+                        </div>
+                        <select name="menu" class="p-4">
+                            @foreach ($menus as $item)
+                                <option value="{{ $item['id'] }}" name="{{ $item['id'] }}">{{ $item['nombre'] }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
                 <p class="mb-2">¿Tiene algún comensal alguna intolerancia/alergia?</p>
                 <div class="radioButtoms d-flex">
@@ -297,6 +319,5 @@
                 </div>
             </form>
         @endif
-
     </div>
 @endsection

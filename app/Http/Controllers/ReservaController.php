@@ -3,9 +3,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\FechaHora;
 use App\Models\Hora;
+use App\Models\FechaHora;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class ReservaController extends Controller
 {
@@ -32,7 +33,7 @@ class ReservaController extends Controller
                 ]
             );
         }
-
+      
         return redirect('/reservas')->with('mensaje', $data)->with('mensaje2', $reservasInput);
     }
 
