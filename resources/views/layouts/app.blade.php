@@ -10,6 +10,10 @@
     {{-- Jquery --}}
     <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
         crossorigin="anonymous"></script>
+    {{-- Full calendar --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css"
+        integrity="sha512-liDnOrsa/NzR+4VyWQ3fBzsDBzal338A1VfUpQvAcdt+eL88ePCOd3n9VQpdA0Yxi4yglmLy/AmH+Lrzmn0eMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
