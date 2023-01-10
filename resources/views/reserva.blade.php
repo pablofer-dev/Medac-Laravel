@@ -3,6 +3,7 @@
     RESERVA
 @endsection
 @section('content')
+
     <hr class="border border-dark border-bootom linea1">
     <div class="d-flex justify-content-center headerFood">
         <div class="ml-auto pr-10">
@@ -108,11 +109,12 @@
                 <input type="date" name="date" id="date" class="ml-3">
             </div>
         </div>
+        <div id='calendar'></div>
         <div class="container d-flex justify-content-center mt-6">
             <button class="btn btn-primary">Buscar hora</button>
         </div>
     </form>
-   
+
     <div class="container">
         <div class="flex-column justify-content-center align-items-center fs-5 text-center my-5">
             <div>
@@ -134,7 +136,8 @@
                                 @endif
                             @elseif ($dataInput['flexRadioDefault'] == 'cena' && $item['eleccion'] == 'cena')
                                 @if ($item['estado'] == 'no-reservada')
-                                    <a href="{{ url('reservas-info') . '/' . $item['id'] . $dataInput['comensales'] }}"><button type="button"
+                                    <a href="{{ url('reservas-info') . '/' . $item['id'] . $dataInput['comensales'] }}"><button
+                                            type="button"
                                             class="btn btn-primary">{{ $item['id_hora'][0]['hora'] }}</button></a>
                                 @elseif($item['estado'] == 'reservada')
                                     <button disabled type="button"
