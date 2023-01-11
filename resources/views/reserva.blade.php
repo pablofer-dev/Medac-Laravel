@@ -3,7 +3,6 @@
     RESERVA
 @endsection
 @section('content')
-
     <hr class="border border-dark border-bootom linea1">
     <div class="d-flex justify-content-center headerFood">
         <div class="ml-auto pr-10">
@@ -81,76 +80,61 @@
         </div>
     </div>
     <hr class="border border-dark border-bootom linea2">
-    <form action="/reservas" method="post" class="container mt-5">
-        @csrf
-        <div class="d-flex justify-content-center align-items-center">
-            <div class="informacion fs-5">
-                <select name="comensales" id="comensales">
-                    <option value="comensales">COMENSALES</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                </select>
-            </div>
-            <div class="form-check fs-5 mx-5">
-                <input value="comida" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
-                    checked>
-                <label class="form-check-label" for="flexRadioDefault1">
-                    Comida
-                </label>
-            </div>
-            <div class="form-check fs-5">
-                <input value="cena" class="form-check-input" type="radio" name="flexRadioDefault"
-                    id="flexRadioDefault2">
-                <label class="form-check-label" for="flexRadioDefault2" va>
-                    Cena
-                </label>
-                <input type="date" name="date" id="date" class="ml-3">
-            </div>
-        </div>
+    <div class="container mt-5">
         <div id='calendar'></div>
-        <div class="container d-flex justify-content-center mt-6">
-            <button class="btn btn-primary">Buscar hora</button>
-        </div>
-    </form>
+    </div>
 
     <div class="container">
         <div class="flex-column justify-content-center align-items-center fs-5 text-center my-5">
-            <div>
-                @if (session()->has('mensaje'))
-                    @if (session()->has('mensaje2'))
-                        @php
-                            $dataBase = session('mensaje');
-                            $dataInput = session('mensaje2');
-                        @endphp
-                        @foreach ($dataBase as $item)
-                            @if ($dataInput['flexRadioDefault'] == 'comida' && $item['eleccion'] == 'comida')
-                                @if ($item['estado'] == 'no-reservada')
-                                    <a href="{{ url('reservas-info') . '/' . $item['id'] . $dataInput['comensales'] }}"><button
-                                            type="button"
-                                            class="btn btn-primary">{{ $item['id_hora'][0]['hora'] }}</button></a>
-                                @elseif($item['estado'] == 'reservada')
-                                    <button disabled type="button"
-                                        class="btn btn-warning">{{ $item['id_hora'][0]['hora'] }}</button>
-                                @endif
-                            @elseif ($dataInput['flexRadioDefault'] == 'cena' && $item['eleccion'] == 'cena')
-                                @if ($item['estado'] == 'no-reservada')
-                                    <a href="{{ url('reservas-info') . '/' . $item['id'] . $dataInput['comensales'] }}"><button
-                                            type="button"
-                                            class="btn btn-primary">{{ $item['id_hora'][0]['hora'] }}</button></a>
-                                @elseif($item['estado'] == 'reservada')
-                                    <button disabled type="button"
-                                        class="btn btn-warning">{{ $item['id_hora'][0]['hora'] }}</button>
-                                @endif
-                            @endif
-                        @endforeach
-                    @endif
-                @endif
+            <div id="horas">
+
             </div>
+
 
         </div>
     </div>
 
     <hr class="border border-dark border-bootom linea2">
+    <script>
+        var CALENDAR = null;
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+            CALENDAR = new FullCalendar.Calendar(calendarEl, {
+                headerToolbar: {
+                    start: 'title',
+                    end: 'today prev,next'
+                },
+                locale: 'es',
+                initialView: 'dayGridMonth',
+                events: {
+                    url: '/events',
+                    failure: function() {
+                        console.log("Error en obtener los eventos");
+                    }
+                },
+                eventClick: function(info) {
+                    $.ajax({
+                        type: 'POST',
+                        url: '/events',
+                        data: {
+                            _token: "{{ csrf_token() }}",
+                            fecha: info.event.startStr,
+                            type: 'horasAjax'
+                        },
+                        success: function(response) {
+                            let horasDiv = document.getElementById('horas');
+                            horasDiv.innerHTML = '';
+                            response.forEach(element => {
+                                horasDiv.insertAdjacentHTML('beforeend',
+                                    `<a class="btn btn-success fs-2" href="{{ url('reservas-info') . '/' }}${element['id'][0]['id']}">${element['hora'][0]['hora']}</a>`
+                                );
+                            });
+                        }
+                    })
+
+                }
+            });
+            CALENDAR.render();
+        });
+    </script>
 @endsection

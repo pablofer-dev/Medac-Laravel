@@ -48,14 +48,11 @@
         <div class="informacion text-left">
             @isset($fecha)
                 @php
-                    session()->put('comensales', $comensales);
+                    
                     session()->put('fecha', $fecha[0]['fk_fecha']);
                 @endphp
                 <div class="fecha"><i class="fa-solid fa-calendar-days"><span class="p-2 text22">{{ $fecha[0]['fk_fecha'] }},
                             {{ $hora[0]['hora'] }}.</span></i>
-                </div>
-                <div class="numeroPersonas"><i class="fa-solid fa-users"><span class="p-2 text22">{{ $comensales }}
-                            personas</span></i>
                 </div>
                 <div class="localizacion"><i class="fa-solid fa-location-dot"><span class="p-2 text22">Urb. Puente Romano
                             Fase II, Locales 83 & 84,

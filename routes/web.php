@@ -51,8 +51,9 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('/contacto', [ContactoController::class, 'store']);
-Route::post('/events', [EventsController::class, 'find']);
+Route::get('/events', [EventsController::class, 'find']);
+Route::post('/events', [EventsController::class, 'horasAjax']);
 Route::get('/perfil', [PerfilController::class, 'find']);
 Route::post('/reservas-confirmacion', [ReservaConfirmationController::class, 'store']);
 Route::post('/reservas', [ReservaController::class, 'find']);
-Route::get('/reservas-info/{id}{comensales}', [ReservaInfoController::class, 'find']);
+Route::get('/reservas-info/{id}', [ReservaInfoController::class, 'find']);

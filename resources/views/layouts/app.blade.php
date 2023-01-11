@@ -13,6 +13,7 @@
     {{-- Full calendar --}}
     <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.css' rel='stylesheet' />
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.js'></script>
+    
 </head>
 
 <body>
