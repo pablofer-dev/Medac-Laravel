@@ -21,6 +21,7 @@ class ReservaConfirmationController extends Controller
 {
     public function store(Request $request)
     {
+        /* $request->form6Example11 */
         $this->validate($request, [
             'nombre' => 'required | min:3 | max:30',
             'apellido' => 'required | min:3 | max:30',
@@ -35,12 +36,12 @@ class ReservaConfirmationController extends Controller
         if (Auth::user() != null) {
             /* Usuario Registrado */
             $mesa = Mesa::create([
-                'numero_comensal' => Session::get('comensales'),
+                'numero_comensal' => $request->comensales,
             ]);
             $id = FechaHora::select('id_hora')->where('id', Session::get('id'))->get();
             $resultHoraId = Hora::select('id')->where('id', $id[0]['id_hora'])->get();
             $reserva = Reserva::create([
-                'numero_persona' => Session::get('comensales'),
+                'numero_persona' => $request->comensales,
                 'users_id' => Auth::user()->id,
                 'menu_id' => $request->menu,
                 'tarjeta_creadito_id' => $request->card,
@@ -63,12 +64,12 @@ class ReservaConfirmationController extends Controller
             ]);
 
             $mesa = Mesa::create([
-                'numero_comensal' => Session::get('comensales'),
+                'numero_comensal' => $request->comensales,
             ]);
             $id = FechaHora::select('id_hora')->where('id', Session::get('id'))->get();
             $resultHoraId = Hora::select('id')->where('id', $id[0]['id_hora'])->get();
             $reserva = Reserva::create([
-                'numero_persona' => Session::get('comensales'),
+                'numero_persona' => $request->comensales,
                 'users_id' => null,
                 'menu_id' => $request->menu,
                 'tarjeta_creadito_id' => $request->card,

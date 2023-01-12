@@ -168,7 +168,7 @@
                     </div>
                 </div>
                 <div class="reservaCoste text-center">
-                    <p class="fw-bold fs-5 my-4">Realizar la reserva costará 10€/persona</p>
+                    <p class="fw-bold fs-5 my-4">Realizar la reserva costará 210€/persona</p>
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -271,6 +271,21 @@
                                 </option>
                             @endforeach
                         </select>
+                    </div>
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example11">COMENSALES</label>
+                            <input type="number" id="form6Example11" name="comensales" min="1" max="4"
+                                class="form-control py-3 fs-5" />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example12">COMIDA</label>
+                            <input type="radio" id="form6Example12" name="comida" value="COMIDA"><br>
+                            <label for="form6Example12">CENA</label>
+                            <input type="radio" id="css" name="cena" value="CENA">
+                        </div>
                     </div>
                 </div>
                 <p class="mb-2">¿Tiene algún comensal alguna intolerancia/alergia?</p>
