@@ -77,11 +77,12 @@ header {
 }
 
 @media (max-width: 700px) {
-
     .containerRight {
         display: none;
     }
-
+    #fotoHeaderID {
+        width: 2125px !important;
+    }
     .desplegable {
         display: initial;
     }
@@ -120,6 +121,12 @@ header {
         width: 100vw;
         font-size: 1rem;
         background-image: url("/img/footer/footer.jpg");
+    }
+    .fotoContacto {
+        display: none;
+    }
+    #imgLogoReserva {
+        display: none;
     }
 
 }

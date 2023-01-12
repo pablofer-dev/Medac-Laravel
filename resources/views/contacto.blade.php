@@ -12,7 +12,7 @@
     <h1 class="text-center">Contacta con nosotros</h1>
     <div class="flex m-5">
         <div class="img mx-auto">
-            <img src="../img/contacto/contacto.jpg" class="object-scale-down h-85 w-90 ">
+            <img src="../img/contacto/contacto.jpg" class="object-scale-down h-85 w-90 fotoContacto">
         </div>
         <form action="/contacto" method="post" class=" mx-auto w-5/12">
             @csrf
