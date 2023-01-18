@@ -48,7 +48,6 @@
         <div class="informacion text-left">
             @isset($fecha)
                 @php
-                    
                     session()->put('fecha', $fecha[0]['fk_fecha']);
                 @endphp
                 <div class="fecha"><i class="fa-solid fa-calendar-days"><span class="p-2 text22">{{ $fecha[0]['fk_fecha'] }},

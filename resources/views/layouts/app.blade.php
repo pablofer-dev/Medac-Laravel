@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -24,9 +24,9 @@
     <header>
         <div class="containerHeader">
             <input type="checkbox" name="check" id="ch" class="ch5">
-            <label for="ch" class="ch2"><i class="fa-sharp fa-solid fa-bars icon fs-5"></i></label>
+            <label for="ch" class="ch2"><i class="fa-sharp fa-solid fa-bars icon fs-5"></i>h</label>
             <div class="containerLeft">
-                <a href="{{ url('/') }}"><img src="./img/header/logoTest.png" id="fotoHeaderID" class="fotoHeader"></a>
+                <a href="{{ url('/') }}"><img src="./img/header/logoTest.png" alt="img" id="fotoHeaderID" class="fotoHeader"></a>
             </div>
             <div class="containerRight">
                 <ul class="menus">
@@ -52,7 +52,7 @@
         <footer>
             <div class="containerFooter">
                 <div class="containerMiddleFooter">
-                    <img src="./img/header/logoTest.png" class="imgFooter">
+                    <img src="./img/header/logoTest.png" alt="img" class="imgFooter">
                 </div>
                 <div class="containerLeftFooter">
                     <ul>
