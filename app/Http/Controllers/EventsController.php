@@ -18,7 +18,7 @@ class EventsController extends Controller
         foreach ($result as $key) {
             $data[] = array(
                 'id' => $key->id,
-                'title' => '',
+                'title' => 'Disponible',
                 'start' => $key->fk_fecha,
                 'end' => $key->fk_fecha,
             );
