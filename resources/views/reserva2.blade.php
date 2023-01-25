@@ -86,7 +86,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row mb-4 my-5 formdata">
+                <div class="row formdata">
                     <div class="col-6">
                         <div class="form-outline">
                             <label class="form-label" for="form6Example3">EMAIL</label>
@@ -95,25 +95,20 @@
                         </div>
                     </div>
                     <div class="col-6">
-                        <div class="row formdata">
-                            <div class="col-6">
-                                <div class="form-outline">
-                                    <label class="form-label" for="form6Example4">TELÉFONO</label>
-                                    <input type="text" id="form6Example4" name="telefono" class="form-control py-3 fs-5"
-                                        value="{{ Auth::user()->telefono }}" />
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="form-outline">
-                                    <label class="form-label" for="form6Example5">C.P</label>
-                                    <input type="text" id="form6Example5" name="cp"
-                                        class="form-control py-3 fs-5" />
-                                </div>
-                            </div>
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example4">TELÉFONO</label>
+                            <input type="text" id="form6Example4" name="telefono" class="form-control py-3 fs-5"
+                                value="{{ Auth::user()->telefono }}" />
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example5">C.P</label>
+                            <input type="text" id="form6Example5" name="cp" class="form-control py-3 fs-5" />
                         </div>
                     </div>
                 </div>
-                <div class="row mb-4 my-5 formdata">
+                <div class="row formdata">
                     <div class="col">
                         <div class="form-outline">
                             <label class="form-label" for="form6Example6">PAÍS</label>
@@ -209,7 +204,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="formdatarow mb-4  my-5">
+                <div class="formdatarow">
                     <div class="col-6">
                         <div class="form-outline">
                             <label class="form-label" for="form6Example3">EMAIL</label>
@@ -235,7 +230,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="formdata row mb-4 my-5">
+                <div class="formdata row ">
                     <div class="col">
                         <div class="form-outline">
                             <label class="form-label" for="form6Example6">PAÍS</label>
