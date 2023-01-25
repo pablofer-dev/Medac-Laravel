@@ -87,16 +87,12 @@
     <div class="container">
         <div class="flex-column justify-content-center align-items-center fs-5 text-center my-5">
             <div id="horas">
-
             </div>
-
-
         </div>
     </div>
 
     <hr class="border border-dark border-bootom linea2">
     <script>
-        
         var CALENDAR = null;
         document.addEventListener('DOMContentLoaded', function() {
             var calendarEl = document.getElementById('calendar');
@@ -108,7 +104,6 @@
                 locale: 'es',
                 initialView: 'dayGridMonth',
                 events: {
-                    title: 'Disponible',
                     url: '/events',
                     failure: function() {
                         console.log("Error en obtener los eventos");
@@ -131,6 +126,9 @@
                                 horasDiv.insertAdjacentHTML('beforeend',
                                     `<a class="btn btn-success fs-2" href="{{ url('reservas-info') . '/' }}${element['id'][0]['id']}">${element['hora'][0]['hora']}</a>`
                                 );
+                            });
+                            $('#horas').click(function() {
+                                console.log("moviendo");
                             });
                         }
                     })
