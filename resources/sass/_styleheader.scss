@@ -69,9 +69,7 @@ header {
 }
 
 @media (max-width: 700px) {
-    .formdata {
-        display: block;
-    }
+    
     .containerRight {
         display: none;
     }
@@ -81,7 +79,9 @@ header {
     .desplegable {
         display: initial;
     }
-
+    .formdata {
+        display: block !important;
+    }
     .icon {
         cursor: pointer;
     }

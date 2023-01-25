@@ -70,7 +70,7 @@
         @if (Auth::user())
             <form action="/reservas-confirmacion" method="POST">
                 @csrf
-                <div class="row mb-4 my-5 formdata">
+                <div class="formdata row mb-4 my-5">
                     <div class="col">
                         <div class="form-outline">
                             <label class="form-label" for="form6Example1">NOMBRE</label>
@@ -195,7 +195,7 @@
         @else
             <form action="/reservas-confirmacion" method="POST">
                 @csrf
-                <div class="row mb-4 my-5">
+                <div class="formdata row mb-4 my-5">
                     <div class="col">
                         <div class="form-outline">
                             <label class="form-label" for="form6Example1">NOMBRE</label>
@@ -209,7 +209,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row mb-4  my-5">
+                <div class="formdatarow mb-4  my-5">
                     <div class="col-6">
                         <div class="form-outline">
                             <label class="form-label" for="form6Example3">EMAIL</label>
@@ -217,7 +217,7 @@
                         </div>
                     </div>
                     <div class="col-6">
-                        <div class="row">
+                        <div class="formdata row">
                             <div class="col-6">
                                 <div class="form-outline">
                                     <label class="form-label" for="form6Example4">TELÉFONO</label>
@@ -235,7 +235,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row mb-4 my-5">
+                <div class="formdata row mb-4 my-5">
                     <div class="col">
                         <div class="form-outline">
                             <label class="form-label" for="form6Example6">PAÍS</label>
