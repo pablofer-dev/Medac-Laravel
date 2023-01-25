@@ -123,12 +123,13 @@
                             fecha: info.event.startStr,
                             type: 'horasAjax'
                         },
+                        eventColor: 'yellow',
                         success: function(response) {
                             let horasDiv = document.getElementById('horas');
                             horasDiv.innerHTML = '';
                             response.forEach(element => {
                                 horasDiv.insertAdjacentHTML('beforeend',
-                                    `<a class="btn btn-warning fs-2" href="{{ url('reservas-info') . '/' }}${element['id'][0]['id']}">${element['hora'][0]['hora']}</a>`
+                                    `<a class="btn btn-success fs-2" href="{{ url('reservas-info') . '/' }}${element['id'][0]['id']}">${element['hora'][0]['hora']}</a>`
                                 );
                             });
                         }
