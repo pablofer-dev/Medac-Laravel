@@ -9,10 +9,9 @@
             {{ session('mensaje') }}
         </div>
     @endif
-    <h1 class="text-center">Contacta con nosotros</h1>
-    <div class="flex m-5">
-        <div class="img mx-auto">
-            <img src="../img/contacto/contacto.jpg" class="object-scale-down h-85 w-90 fotoContacto">
+    <div class="flex m-5 contactDiv">
+        <div class="img ml-auto my-auto">
+            <img src="../img/contacto/contacto.jpg" class="bg-purple-300 h-78 w-96 fotoContacto">
         </div>
         <form action="/contacto" method="post" class=" mx-auto w-5/12">
             @csrf
@@ -83,7 +82,7 @@
                 </div>
             </div>
             <button
-                class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">Enviar</button>
+                class="botonContacto botones text-white font-bold py-2 px-4 border-b-4 rounded">Enviar</button>
         </form>
     </div>
 @endsection

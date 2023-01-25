@@ -37,7 +37,31 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     background: transparent;
 }
 .border-2 {
-    border: 0px solid #e2e8f0;
+    border: 0px solid #e2e8f0 !important;
+}
+.resev {
+    background-color: #1f2329;
+    color: white;
+    font-weight: 600;
+    font-size: 1.5rem;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.botones {
+    background-color: #1f2329 !important;
+}
+.resev:hover {
+    background-color: #bf1300a8;
+    color: white;
+    font-weight: 600;
+    font-size: 1.5rem;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    transition: 0.3s ease all;
 }
 /* adjust increase/decrease button */
 input[type="date"]::-webkit-inner-spin-button {

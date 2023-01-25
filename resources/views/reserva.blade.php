@@ -96,6 +96,11 @@
 
     <hr class="border border-dark border-bootom linea2">
     <script>
+       
+        $(document).on('click', '.fc-button', function(e) {
+            $('.fc-toolbar.fc-header-toolbar').addClass('row col-lg-12');
+        });
+
         var CALENDAR = null;
         document.addEventListener('DOMContentLoaded', function() {
             var calendarEl = document.getElementById('calendar');

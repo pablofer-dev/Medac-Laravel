@@ -24,7 +24,7 @@
     <header>
         <div class="containerHeader">
             <input type="checkbox" name="check" id="ch" class="ch5">
-            <label for="ch" class="ch2"><i class="fa-sharp fa-solid fa-bars icon fs-5"></i>h</label>
+            <label for="ch" class="ch2"><i class="fa-sharp fa-solid fa-bars icon fs-5"></i></label>
             <div class="containerLeft">
                 <a href="{{ url('/') }}"><img src="./img/header/logoTest.png" alt="img" id="fotoHeaderID" class="fotoHeader"></a>
             </div>
@@ -33,14 +33,13 @@
                     <li><a href="{{ url('/') }}"><span class="hover fs-5">INICIO</span></a></li>
                     <li><a href="{{ url('/') }}" class="hover fs-5">MENU</a></li>
                     <li><a href="{{ url('/contacto') }}" class="hover fs-5">CONTACTO</a></li>
-                    <li><a href="{{ url('/reservas') }}" class="hover fs-5">RESERVAR</a></li>
-                    <li><a href="{{ url('/info') }}" class="hover fs-5">INFO</a></li>
                     @if (Auth::check())
-                        <li><a href="{{ url('/perfil') }}" class="hover fs-5">PERFIL</a></li>
-                        <li><a href="{{ url('/logout') }}" class="hover fs-5">LOGOUT</a></li>
+                    <li><a href="{{ url('/perfil') }}" class="hover fs-5">PERFIL</a></li>
+                    <li><a href="{{ url('/logout') }}" class="hover fs-5">LOGOUT</a></li>
                     @else
-                        <li><a href="{{ url('/signin') }}" class="hover fs-5">LOGIN</a></li>
+                    <li><a href="{{ url('/signin') }}" class="hover fs-5">LOGIN</a></li>
                     @endif
+                    <li><a href="{{ url('/reservas') }}" class="hover resev fs-5">RESERVAR</a></li>
                 </ul>
             </div>
         </div>
