@@ -127,9 +127,7 @@
                                     `<a class="btn btn-success fs-2" href="{{ url('reservas-info') . '/' }}${element['id'][0]['id']}">${element['hora'][0]['hora']}</a>`
                                 );
                             });
-                            $('#horas').click(function() {
-                                console.log("moviendo");
-                            });
+                            window.scrollTo(0, document.body.scrollHeight);
                         }
                     })
 
