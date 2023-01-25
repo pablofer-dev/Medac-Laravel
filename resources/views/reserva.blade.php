@@ -80,7 +80,7 @@
         </div>
     </div>
     <hr class="border border-dark border-bootom linea2">
-    <div class="container mt-5">
+    <div class="container calendarioDiv mt-5">
         <div id='calendar'></div>
     </div>
 
@@ -96,11 +96,7 @@
 
     <hr class="border border-dark border-bootom linea2">
     <script>
-       
-        $(document).on('click', '.fc-button', function(e) {
-            $('.fc-toolbar.fc-header-toolbar').addClass('row col-lg-12');
-        });
-
+        
         var CALENDAR = null;
         document.addEventListener('DOMContentLoaded', function() {
             var calendarEl = document.getElementById('calendar');
@@ -117,6 +113,7 @@
                         console.log("Error en obtener los eventos");
                     }
                 },
+                height: 650,
                 eventClick: function(info) {
                     $.ajax({
                         type: 'POST',
@@ -131,7 +128,7 @@
                             horasDiv.innerHTML = '';
                             response.forEach(element => {
                                 horasDiv.insertAdjacentHTML('beforeend',
-                                    `<a class="btn btn-success fs-2" href="{{ url('reservas-info') . '/' }}${element['id'][0]['id']}">${element['hora'][0]['hora']}</a>`
+                                    `<a class="btn btn-warning fs-2" href="{{ url('reservas-info') . '/' }}${element['id'][0]['id']}">${element['hora'][0]['hora']}</a>`
                                 );
                             });
                         }

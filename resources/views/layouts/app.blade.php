@@ -31,7 +31,7 @@
             <div class="containerRight">
                 <ul class="menus">
                     <li><a href="{{ url('/') }}"><span class="hover fs-5">INICIO</span></a></li>
-                    <li><a href="{{ url('/') }}" class="hover fs-5">MENU</a></li>
+                    <li><a href="{{ url('/#fotoancla') }}" class="hover fs-5">MENU</a></li>
                     <li><a href="{{ url('/contacto') }}" class="hover fs-5">CONTACTO</a></li>
                     @if (Auth::check())
                     <li><a href="{{ url('/perfil') }}" class="hover fs-5">PERFIL</a></li>

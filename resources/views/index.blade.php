@@ -30,7 +30,7 @@
 
     </div>
     <div class="d-flex justify-content-center mt-3">
-        <div class="leftContainerMenu m-auto">
+        <div class="leftContainerMenu m-auto" id="fotoancla">
             <div class="textMenu m-3">
                 <h1 class="display-5 m-0 border-2 border-bottom border-dark">Menu</h1>
                 <p class="fs-3 m-5 mt-0 mb-0">Ramen</p>
