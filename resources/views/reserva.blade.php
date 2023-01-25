@@ -108,6 +108,7 @@
                 locale: 'es',
                 initialView: 'dayGridMonth',
                 events: {
+                    title: 'Disponible',
                     url: '/events',
                     failure: function() {
                         console.log("Error en obtener los eventos");
@@ -123,7 +124,6 @@
                             fecha: info.event.startStr,
                             type: 'horasAjax'
                         },
-                       
                         success: function(response) {
                             let horasDiv = document.getElementById('horas');
                             horasDiv.innerHTML = '';
