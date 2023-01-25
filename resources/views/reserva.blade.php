@@ -123,7 +123,7 @@
                             fecha: info.event.startStr,
                             type: 'horasAjax'
                         },
-                        eventColor: '#FFC107',
+                       
                         success: function(response) {
                             let horasDiv = document.getElementById('horas');
                             horasDiv.innerHTML = '';
