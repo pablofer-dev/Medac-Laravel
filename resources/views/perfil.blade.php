@@ -20,7 +20,14 @@
 
             </div>
             <div class="textoPefil">
-                <h1 class="my-5">Bienvenido, {{ Auth::user()->name . ' ' . Auth::user()->apellido }}</h1>
+
+                <h1 class="my-5">Bienvenido,
+                    {{ strtoupper(Auth::user()->name) . ' ' . strtoupper(Auth::user()->apellido) }}
+                </h1>
+                <form action="/logout" method="get" class="text-center">
+                    @csrf
+                    <input type="submit" value="Logout" class="btn btn-danger text-center">
+                </form>
             </div>
         </div>
         <hr class="border border-dark border-bootom linea2">
@@ -73,7 +80,7 @@
                                     <td class="reservas">
                                         <form action="/perfil" method="post">
                                             @csrf
-                                            <button type="submit"class="btn btn-danger" >CANCELAR</button>
+                                            <button type="submit"class="btn btn-danger">CANCELAR</button>
                                         </form>
                                     </td>
                                 @endforeach

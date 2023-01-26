@@ -38,7 +38,6 @@
                     <li><a href="{{ url('/contacto') }}" class="hover fs-5">CONTACTO</a></li>
                     @if (Auth::check())
                         <li><a href="{{ url('/perfil') }}" class="hover fs-5">PERFIL</a></li>
-                        <li><a href="{{ url('/logout') }}" class="hover fs-5">LOGOUT</a></li>
                     @else
                         <li><a href="{{ url('/signin') }}" class="hover fs-5">LOGIN</a></li>
                     @endif
