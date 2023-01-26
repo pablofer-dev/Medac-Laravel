@@ -33,15 +33,15 @@
                             <h5 class="mb-1 ">NOMBRE: </h5>
                             <h5 class="m-3 mt-0 mb-1">{{ Auth::user()->name }}</h5>
                         </div>
-                        <div class="comensales d-flex justify-content-center">
+                        <div class="comensales d-flex justify-content-center mt-2">
                             <h5 class="mb-1">APELLIDO: </h5>
                             <h5 class="m-3 mt-0 mb-1">{{ Auth::user()->apellido }}</h5>
                         </div>
-                        <div class="comensales d-flex justify-content-center">
+                        <div class="comensales d-flex justify-content-center mt-2">
                             <h5 class="mb-1">EMAIL: </h5>
                             <h5 class="m-3 mt-0 mb-1">{{ Auth::user()->email }}</h5>
                         </div>
-                        <div class="comensales d-flex justify-content-center">
+                        <div class="comensales d-flex justify-content-center mt-2">
                             <h5 class="mb-1">TELÉFONO: </h5>
                             <h5 class="m-3 mt-0 mb-1">{{ Auth::user()->telefono }}</h5>
                         </div>
@@ -58,7 +58,7 @@
                                 <th scope="col" class="reservas">#</th>
                                 <th scope="col" class="reservas">ID</th>
                                 <th scope="col" class="reservas">RESERVA</th>
-                                <th scope="col" class="reservas">FACTURA</th>
+                                <th scope="col" class="reservas">ESTA</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -68,14 +68,17 @@
                                 @endphp
                                 @foreach ($result as $item)
                                     <th scope="row" class="reservas">{{ $cont }}</th>
-                                    <td class="reservas">{{ $item->id }}</td>
-                                    <td class="reservas">{{ $item->fecha_fk }}</td>
-                                    <td class="reservas"><a href="#"><span class="material-symbols-outlined">
-                                                description
-                                            </span></a></td>
+                                    <td class="reservas pt-3">{{ $item->id }}</td>
+                                    <td class="reservas pt-3">{{ $item->fecha_fk }}</td>
+                                    <td class="reservas">
+                                        <form action="/perfil" method="post">
+                                            @csrf
+                                            <button type="submit"class="btn btn-danger" >CANCELAR</button>
+                                        </form>
+                                    </td>
                                 @endforeach
                             @endisset
-                            
+
                         </tbody>
                     </table>
                 </div>

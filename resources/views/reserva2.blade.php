@@ -75,191 +75,111 @@
                         <div class="form-outline">
                             <label class="form-label" for="form6Example1">NOMBRE</label>
                             <input type="text" id="form6Example1" name="nombre" class="form-control py-3 fs-5"
-                                value="{{ Auth::user()->name }}" />
+                                value="{{ Auth::user()->name }}">
+                        </div>
+                        <div class="error bg-rose-900 text-neutral-100">
+                            @error('nombre')
+                                <p class="tect-center text-lg">{{ $message }}</p>
+                            @enderror
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-outline">
                             <label class="form-label" for="form6Example2">APELLIDO</label>
                             <input type="text" id="form6Example2" name="apellido" class="form-control py-3 fs-5"
-                                value="{{ Auth::user()->apellido }}" />
+                                value="{{ Auth::user()->apellido }}">
+                        </div>
+                        <div class="error bg-rose-900 text-neutral-100">
+                            @error('apellido')
+                                <p class="tect-center text-lg">{{ $message }}</p>
+                            @enderror
                         </div>
                     </div>
                 </div>
-                <div class="row formdata">
-                    <div class="col-6">
+                <div class="formdata row mb-4 my-5">
+                    <div class="col">
                         <div class="form-outline">
                             <label class="form-label" for="form6Example3">EMAIL</label>
                             <input type="text" id="form6Example3" name="email" class="form-control py-3 fs-5"
-                                value="{{ Auth::user()->email }}" />
+                                value="{{ Auth::user()->email }}">
+                        </div>
+                        <div class="error bg-rose-900 text-neutral-100">
+                            @error('email')
+                                <p class="tect-center text-lg">{{ $message }}</p>
+                            @enderror
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col">
                         <div class="form-outline">
                             <label class="form-label" for="form6Example4">TELÉFONO</label>
-                            <input type="text" id="form6Example4" name="telefono" class="form-control py-3 fs-5"
-                                value="{{ Auth::user()->telefono }}" />
+                            <input type="text" id="form6Example4" minlength="8" maxlength="9" name="telefono"
+                                class="form-control py-3 fs-5" value="{{ Auth::user()->telefono }}">
                         </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="form-outline">
-                            <label class="form-label" for="form6Example5">C.P</label>
-                            <input type="text" id="form6Example5" name="cp" class="form-control py-3 fs-5" />
+                        <div class="error bg-rose-900 text-neutral-100">
+                            @error('telefono')
+                                <p class="tect-center text-lg">{{ $message }}</p>
+                            @enderror
                         </div>
                     </div>
                 </div>
-                <div class="row formdata">
+                <div class="formdata row mb-4 my-5">
                     <div class="col">
                         <div class="form-outline">
                             <label class="form-label" for="form6Example6">PAÍS</label>
-                            <input type="text" id="form6Example6" name="pais" class="form-control py-3 fs-5" />
+                            <input type="text" id="form6Example6" name="pais" class="form-control py-3 fs-5"
+                                value={{ old('pais') }}>
+                        </div>
+                        <div class="error bg-rose-900 text-neutral-100">
+                            @error('pais')
+                                <p class="tect-center text-lg">{{ $message }}</p>
+                            @enderror
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-outline">
                             <label class="form-label" for="form6Example7">FECHA DE NACIMIENTO</label>
-                            <input type="date" id="form6Example7" name="nacimiento" class="form-control py-3 fs-5" />
+                            <input type="date" id="form6Example7" name="nacimiento" class="form-control py-3 fs-5"
+                                value={{ old('nacimiento') }}>
+                        </div>
+                        <div class="error bg-rose-900 text-neutral-100">
+                            @error('nacimiento')
+                                <p class="tect-center text-lg">{{ $message }}</p>
+                            @enderror
                         </div>
                     </div>
+                </div>
+                <div class="formdata row mb-4 my-5">
                     <div class="col">
                         <div class="form-outline">
                             <label class="form-label" for="form6Example8">TARJETA DE CREDITO</label>
-                            <input type="text" id="form6Example8" name="card" class="form-control py-3 fs-5" />
+                            <input type="text" id="form6Example8" name="card" minlength="3" maxlength="16"
+                                class="form-control py-3 fs-5" value={{ old('card') }}>
+                        </div>
+                        <div class="error bg-rose-900 text-neutral-100">
+                            @error('card')
+                                <p class="tect-center text-lg">{{ $message }}</p>
+                            @enderror
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-outline">
                             <label class="form-label" for="form6Example9">CVV</label>
-                            <input type="number" id="form6Example9" class="form-control py-3 fs-5" />
+                            <input type="number" name="cvv" id="form6Example9" minlength="3" maxlength="3"
+                                class="form-control py-3 fs-5" value={{ old('cvv') }}>
                         </div>
-                    </div>
-                    <div class="col">
-                        <div class="form-outline">
-                            <label class="form-label" for="form6Example10">MENU</label>
-                        </div>
-                        <select name="menu" class="p-4">
-                            @foreach ($menus as $item)
-                                <option value="{{ $item['id'] }}" name="{{ $item['id'] }}">{{ $item['nombre'] }}
-                                </option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
-                <p class="mb-2">¿Tiene algún comensal alguna intolerancia/alergia?</p>
-                <div class="radioButtoms d-flex">
-                    <div class="form-check">
-                        <label class="form-check-label" for="flexRadioDefault1">
-                            Si
-                        </label>
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                    </div>
-                    <div class="form-check mx-5">
-                        <label class="form-check-label" for="flexRadioDefault2">
-                            No
-                        </label>
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
-                            checked>
-                    </div>
-                </div>
-                <div class="reservaCoste text-center">
-                    <p class="fw-bold fs-5 my-4">Realizar la reserva costará 210€/persona</p>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                        Acepto las condiciones de uso, política de privacidad y aviso legal.
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                        Consiento el tratamiento de datos personales.
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                        Consiento la recepción de comunicaciones del restaurante por e-mail y/o SMS con fines comerciales.
-                    </label>
-                </div>
-                <div class="centrar d-flex justify-content-center my-5">
-                    <button
-                        class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">Enviar</button>
-                </div>
-            </form>
-        @else
-            <form action="/reservas-confirmacion" method="POST">
-                @csrf
-                <div class="formdata row mb-4 my-5">
-                    <div class="col">
-                        <div class="form-outline">
-                            <label class="form-label" for="form6Example1">NOMBRE</label>
-                            <input type="text" id="form6Example1" name="nombre" class="form-control py-3 fs-5" />
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="form-outline">
-                            <label class="form-label" for="form6Example2">APELLIDO</label>
-                            <input type="text" id="form6Example2" name="apellido" class="form-control py-3 fs-5" />
-                        </div>
-                    </div>
-                </div>
-                <div class="formdatarow">
-                    <div class="col-6">
-                        <div class="form-outline">
-                            <label class="form-label" for="form6Example3">EMAIL</label>
-                            <input type="text" id="form6Example3" name="email" class="form-control py-3 fs-5" />
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="formdata row">
-                            <div class="col-6">
-                                <div class="form-outline">
-                                    <label class="form-label" for="form6Example4">TELÉFONO</label>
-                                    <input type="text" id="form6Example4" name="telefono"
-                                        class="form-control py-3 fs-5" />
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="form-outline">
-                                    <label class="form-label" for="form6Example5">C.P</label>
-                                    <input type="text" id="form6Example5" name="cp"
-                                        class="form-control py-3 fs-5" />
-                                </div>
-                            </div>
+                        <div class="error bg-rose-900 text-neutral-100">
+                            @error('cvv')
+                                <p class="tect-center text-lg">{{ $message }}</p>
+                            @enderror
                         </div>
                     </div>
                 </div>
                 <div class="formdata row ">
                     <div class="col">
                         <div class="form-outline">
-                            <label class="form-label" for="form6Example6">PAÍS</label>
-                            <input type="text" id="form6Example6" name="pais" class="form-control py-3 fs-5" />
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="form-outline">
-                            <label class="form-label" for="form6Example7">FECHA DE NACIMIENTO</label>
-                            <input type="date" id="form6Example7" name="nacimiento" class="form-control py-3 fs-5" />
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="form-outline">
-                            <label class="form-label" for="form6Example8">TARJETA DE CREDITO</label>
-                            <input type="text" id="form6Example8" name="card" class="form-control py-3 fs-5" />
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="form-outline">
-                            <label class="form-label" for="form6Example9">CVV</label>
-                            <input type="number" id="form6Example9" class="form-control py-3 fs-5" />
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="form-outline">
                             <label class="form-label" for="form6Example10">MENU</label>
                         </div>
-                        <select name="menu" class="p-4">
+                        <select name="menu" class="p-4 menus">
                             @foreach ($menus as $item)
                                 <option value="{{ $item['id'] }}" name="{{ $item['id'] }}">{{ $item['nombre'] }}
                                 </option>
@@ -270,18 +190,34 @@
                         <div class="form-outline">
                             <label class="form-label" for="form6Example11">COMENSALES</label>
                             <input type="number" id="form6Example11" name="comensales" min="1" max="4"
-                                class="form-control py-3 fs-5" />
+                                class="form-control py-3 fs-5" value={{ old('comensales') }}>
                         </div>
-                    </div>
-                    <div class="col">
-                        <div class="form-outline">
-                            <label class="form-label" for="form6Example12">COMIDA</label>
-                            <input type="radio" id="form6Example12" name="comida" value="COMIDA"><br>
-                            <label for="form6Example12">CENA</label>
-                            <input type="radio" id="css" name="cena" value="CENA">
+                        <div class="error bg-rose-900 text-neutral-100">
+                            @error('comensales')
+                                <p class="tect-center text-lg">{{ $message }}</p>
+                            @enderror
                         </div>
                     </div>
                 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 <p class="mb-2">¿Tiene algún comensal alguna intolerancia/alergia?</p>
                 <div class="radioButtoms d-flex">
                     <div class="form-check">
@@ -321,7 +257,180 @@
                 </div>
                 <div class="centrar d-flex justify-content-center my-5">
                     <button
-                        class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">Enviar</button>
+                        class=" botones text-white font-bold py-2 px-4 border-b-4 rounded">Enviar</button>
+                </div>
+            </form>
+        @else
+            <form action="/reservas-confirmacion" method="POST">
+                @csrf
+                <div class="formdata row mb-4 my-5">
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example1">NOMBRE</label>
+                            <input type="text" id="form6Example1" name="nombre" class="form-control py-3 fs-5"
+                                value={{ old('nombre') }}>
+                        </div>
+                        <div class="error bg-rose-900 text-neutral-100">
+                            @error('nombre')
+                                <p class="tect-center text-lg">{{ $message }}</p>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example2">APELLIDO</label>
+                            <input type="text" id="form6Example2" name="apellido" class="form-control py-3 fs-5"
+                                value={{ old('apellido') }}>
+                        </div>
+                        <div class="error bg-rose-900 text-neutral-100">
+                            @error('apellido')
+                                <p class="tect-center text-lg">{{ $message }}</p>
+                            @enderror
+                        </div>
+                    </div>
+                </div>
+                <div class="formdata row mb-4 my-5">
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example3">EMAIL</label>
+                            <input type="text" id="form6Example3" name="email" class="form-control py-3 fs-5"
+                                value={{ old('email') }}>
+                        </div>
+                        <div class="error bg-rose-900 text-neutral-100">
+                            @error('email')
+                                <p class="tect-center text-lg">{{ $message }}</p>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example4">TELÉFONO</label>
+                            <input type="text" id="form6Example4" minlength="8" maxlength="9" name="telefono"
+                                class="form-control py-3 fs-5" value={{ old('telefono') }}>
+                        </div>
+                        <div class="error bg-rose-900 text-neutral-100">
+                            @error('telefono')
+                                <p class="tect-center text-lg">{{ $message }}</p>
+                            @enderror
+                        </div>
+                    </div>
+                </div>
+                <div class="formdata row mb-4 my-5">
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example6">PAÍS</label>
+                            <input type="text" id="form6Example6" name="pais" class="form-control py-3 fs-5"
+                                value={{ old('pais') }}>
+                        </div>
+                        <div class="error bg-rose-900 text-neutral-100">
+                            @error('pais')
+                                <p class="tect-center text-lg">{{ $message }}</p>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example7">FECHA DE NACIMIENTO</label>
+                            <input type="date" id="form6Example7" name="nacimiento" class="form-control py-3 fs-5"
+                                value={{ old('nacimiento') }}>
+                        </div>
+                        <div class="error bg-rose-900 text-neutral-100">
+                            @error('nacimiento')
+                                <p class="tect-center text-lg">{{ $message }}</p>
+                            @enderror
+                        </div>
+                    </div>
+                </div>
+                <div class="formdata row mb-4 my-5">
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example8">TARJETA DE CREDITO</label>
+                            <input type="text" id="form6Example8" name="card" minlength="3" maxlength="16"
+                                class="form-control py-3 fs-5" value={{ old('card') }}>
+                        </div>
+                        <div class="error bg-rose-900 text-neutral-100">
+                            @error('card')
+                                <p class="tect-center text-lg">{{ $message }}</p>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example9">CVV</label>
+                            <input type="number" name="cvv" id="form6Example9" minlength="3" maxlength="3"
+                                class="form-control py-3 fs-5" value={{ old('cvv') }}>
+                        </div>
+                        <div class="error bg-rose-900 text-neutral-100">
+                            @error('cvv')
+                                <p class="tect-center text-lg">{{ $message }}</p>
+                            @enderror
+                        </div>
+                    </div>
+                </div>
+                <div class="formdata row ">
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example10">MENU</label>
+                        </div>
+                        <select name="menu" class="p-4 menus">
+                            @foreach ($menus as $item)
+                                <option value="{{ $item['id'] }}" name="{{ $item['id'] }}">{{ $item['nombre'] }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example11">COMENSALES</label>
+                            <input type="number" id="form6Example11" name="comensales" min="1" max="4"
+                                class="form-control py-3 fs-5" value={{ old('comensales') }}>
+                        </div>
+                        <div class="error bg-rose-900 text-neutral-100">
+                            @error('comensales')
+                                <p class="tect-center text-lg">{{ $message }}</p>
+                            @enderror
+                        </div>
+                    </div>
+                </div>
+                <p class="mb-2">¿Tiene algún comensal alguna intolerancia/alergia?</p>
+                <div class="radioButtoms d-flex">
+                    <div class="form-check">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Si
+                        </label>
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                    </div>
+                    <div class="form-check mx-5">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            No
+                        </label>
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
+                            checked>
+                    </div>
+                </div>
+                <div class="reservaCoste text-center">
+                    <p class="fw-bold fs-5 my-4">Realizar la reserva costará 10€/persona</p>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Acepto las condiciones de uso, política de privacidad y aviso legal.
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Consiento el tratamiento de datos personales.
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Consiento la recepción de comunicaciones del restaurante por e-mail y/o SMS con fines comerciales.
+                    </label>
+                </div>
+                <div class="centrar d-flex justify-content-center my-5">
+                    <button class="botones text-white font-bold py-2 px-4 border-b-4 rounded">Enviar</button>
                 </div>
             </form>
         @endif

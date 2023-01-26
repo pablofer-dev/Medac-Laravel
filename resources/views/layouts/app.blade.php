@@ -17,6 +17,8 @@
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 </head>
 
 <body>
@@ -26,7 +28,8 @@
             <input type="checkbox" name="check" id="ch" class="ch5">
             <label for="ch" class="ch2"><i class="fa-sharp fa-solid fa-bars icon fs-5"></i></label>
             <div class="containerLeft">
-                <a href="{{ url('/') }}"><img src="./img/header/logoTest.png" alt="img" id="fotoHeaderID" class="fotoHeader"></a>
+                <a href="{{ url('/') }}"><img src="../img/header/logoTest.png" alt="img" id="fotoHeaderID"
+                        class="fotoHeader"></a>
             </div>
             <div class="containerRight">
                 <ul class="menus">
@@ -34,10 +37,10 @@
                     <li><a href="{{ url('/#fotoancla') }}" class="hover fs-5">MENU</a></li>
                     <li><a href="{{ url('/contacto') }}" class="hover fs-5">CONTACTO</a></li>
                     @if (Auth::check())
-                    <li><a href="{{ url('/perfil') }}" class="hover fs-5">PERFIL</a></li>
-                    <li><a href="{{ url('/logout') }}" class="hover fs-5">LOGOUT</a></li>
+                        <li><a href="{{ url('/perfil') }}" class="hover fs-5">PERFIL</a></li>
+                        <li><a href="{{ url('/logout') }}" class="hover fs-5">LOGOUT</a></li>
                     @else
-                    <li><a href="{{ url('/signin') }}" class="hover fs-5">LOGIN</a></li>
+                        <li><a href="{{ url('/signin') }}" class="hover fs-5">LOGIN</a></li>
                     @endif
                     <li><a href="{{ url('/reservas') }}" class="hover resev fs-5">RESERVAR</a></li>
                 </ul>
@@ -51,7 +54,7 @@
         <footer>
             <div class="containerFooter">
                 <div class="containerMiddleFooter">
-                    <img src="./img/header/logoTest.png" alt="img" class="imgFooter">
+                    <img src="../img/header/logoTest.png" alt="img" class="imgFooter">
                 </div>
                 <div class="containerLeftFooter">
                     <ul>

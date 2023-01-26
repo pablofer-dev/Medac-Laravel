@@ -123,8 +123,10 @@
                             let horasDiv = document.getElementById('horas');
                             horasDiv.innerHTML = '';
                             response.forEach(element => {
+                                hora = element['hora'][0]['hora']
+                                hora = hora.substring(0, hora.length - 3);
                                 horasDiv.insertAdjacentHTML('beforeend',
-                                    `<a class="btn botones text-white fs-2" href="{{ url('reservas-info') . '/' }}${element['id'][0]['id']}">${element['hora'][0]['hora']}</a>`
+                                    `<a class="btn botones text-white fs-2" href="{{ url('reservas-info') . '/' }}${element['id'][0]['id']}">${hora}</a>`
                                 );
                             });
                             window.scrollTo(0, document.body.scrollHeight);

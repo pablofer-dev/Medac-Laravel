@@ -21,17 +21,17 @@ class ReservaConfirmationController extends Controller
 {
     public function store(Request $request)
     {
-        /* $request->form6Example11 */
         $this->validate($request, [
             'nombre' => 'required | min:3 | max:30',
             'apellido' => 'required | min:3 | max:30',
             'email' => 'required | email',
             'telefono' => 'required | integer | digits:9 ',
-            'cp' => 'required | integer',
             'pais' => 'required | min:2 | max:30',
             'nacimiento' => 'required | date',
             'card' => 'required | min:3 | max:30',
-            'flexRadioDefault' => 'required',
+            'comensales' => 'required | integer',
+            'cvv' => 'required | integer | digits:3',
+
         ]);
         if (Auth::user() != null) {
             /* Usuario Registrado */
@@ -62,7 +62,6 @@ class ReservaConfirmationController extends Controller
                 'telefono' => $request->telefono,
                 'dni' => null,
             ]);
-
             $mesa = Mesa::create([
                 'numero_comensal' => $request->comensales,
             ]);
