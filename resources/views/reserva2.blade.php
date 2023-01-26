@@ -179,7 +179,7 @@
                         <div class="form-outline">
                             <label class="form-label" for="form6Example10">MENU</label>
                         </div>
-                        <select name="menu" class="p-4 menus">
+                        <select name="menu" class="p-4 menus222">
                             @foreach ($menus as $item)
                                 <option value="{{ $item['id'] }}" name="{{ $item['id'] }}">{{ $item['nombre'] }}
                                 </option>
@@ -372,7 +372,7 @@
                         <div class="form-outline">
                             <label class="form-label" for="form6Example10">MENU</label>
                         </div>
-                        <select name="menu" class="p-4 menus">
+                        <select name="menu" class="p-4 menus222">
                             @foreach ($menus as $item)
                                 <option value="{{ $item['id'] }}" name="{{ $item['id'] }}">{{ $item['nombre'] }}
                                 </option>
