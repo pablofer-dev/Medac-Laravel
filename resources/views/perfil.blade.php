@@ -23,11 +23,12 @@
 
                 <h1 class="my-5">Bienvenido,
                     {{ strtoupper(Auth::user()->name) . ' ' . strtoupper(Auth::user()->apellido) }}
+                    <form action="/logout" method="get" class="text-center mt-2">
+                        @csrf
+                        <input type="submit" value="Logout" class="btn btn-danger text-center fs-4">
+                    </form>
                 </h1>
-                <form action="/logout" method="get" class="text-center">
-                    @csrf
-                    <input type="submit" value="Logout" class="btn btn-danger text-center">
-                </form>
+
             </div>
         </div>
         <hr class="border border-dark border-bootom linea2">
