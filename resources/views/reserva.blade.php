@@ -86,6 +86,7 @@
 
     <div class="container">
         <div class="flex-column justify-content-center align-items-center fs-5 text-center my-5">
+            <h1 class="mb-3" id="horasDisponiblesText">Horas Disponibles</h1>
             <div id="horas">
             </div>
         </div>
@@ -120,6 +121,7 @@
                             type: 'horasAjax'
                         },
                         success: function(response) {
+                            document.getElementById('horasDisponiblesText').style.display = 'block';
                             let horasDiv = document.getElementById('horas');
                             horasDiv.innerHTML = '';
                             response.forEach(element => {

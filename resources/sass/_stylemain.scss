@@ -52,6 +52,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .botones {
     background-color: #1f2329 !important;
 }
+#horasDisponiblesText {
+    display: none;
+}
 .resev:hover {
     background-color: #bf1300a8;
     color: white;
