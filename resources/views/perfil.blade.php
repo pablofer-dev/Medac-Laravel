@@ -66,7 +66,7 @@
                                 <th scope="col" class="reservas">#</th>
                                 <th scope="col" class="reservas">ID</th>
                                 <th scope="col" class="reservas">RESERVA</th>
-                                <th scope="col" class="reservas">ESTA</th>
+                                <th scope="col" class="reservas">CANCELAR</th>
                             </tr>
                         </thead>
                         <tbody>
