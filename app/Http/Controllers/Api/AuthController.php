@@ -100,7 +100,7 @@ class AuthController extends Controller
             return response()->json([
                 'status' => true,
                 'message' => 'User Logged In Successfully',
-                'token' => $user->createToken("API TOKEN")->plainTextToken 
+                'token' => $user->createToken("API TOKEN")->plainTextToken
             ], 200);
         } catch (\Throwable $th) {
             return response()->json([
@@ -122,7 +122,7 @@ class AuthController extends Controller
                         [
                             'id' => $key->id,
                             'users_id' => $key->users_id,
-                            'user' => User::select('name','apellido','telefono','email')->where('id', $key->users_id)->first(),
+                            'user' => User::select('name', 'apellido', 'telefono', 'email')->where('id', $key->users_id)->first(),
                             'usuarionr_id' => $key->usuarionr_id,
                             'menu_id' => $key->menu_id,
                             'tarjeta_creadito_id' => $key->tarjeta_creadito_id,
@@ -137,7 +137,7 @@ class AuthController extends Controller
                         [
                             'id' => $key->id,
                             'users_id' => $key->users_id,
-                            'user' => UsuarioNR::select('nombre','apellido','email','telefono','dni')->where('id', $key->usuarionr_id)->first(),
+                            'user' => UsuarioNR::select('nombre', 'apellido', 'email', 'telefono', 'dni')->where('id', $key->usuarionr_id)->first(),
                             'usuarionr_id' => $key->usuarionr_id,
                             'menu_id' => $key->menu_id,
                             'tarjeta_creadito_id' => $key->tarjeta_creadito_id,
@@ -154,6 +154,52 @@ class AuthController extends Controller
                 'status' => false,
                 'message' => $th->getMessage()
             ], 600);
+        }
+    }
+
+    public function misreservas(Request $request)
+    {
+        try {
+            $result = Reserva::select('*')->where('users_id', $request->id)->get();
+            $array = array();
+            foreach ($result as $key) {
+                if ($key->users_id != null) {
+                    array_push(
+                        $array,
+                        [
+                            'id' => $key->id,
+                            'users_id' => $key->users_id,
+                            'user' => User::select('name', 'apellido', 'telefono', 'email')->where('id', $key->users_id)->first(),
+                            'usuarionr_id' => $key->usuarionr_id,
+                            'menu_id' => $key->menu_id,
+                            'tarjeta_creadito_id' => $key->tarjeta_creadito_id,
+                            'mesa_id' => $key->mesa_id,
+                            'fecha_fk' => $key->fecha_fk,
+                            'hora' => Hora::select('hora')->where('id', $key->hora_id)->first()->hora,
+                        ]
+                    );
+                }
+            }
+            return response()->json($array, 200);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => $th->getMessage()
+            ], 700);
+        }
+    }
+
+
+    public function deletereservas(Request $request)
+    {
+        try {
+            $result = Reserva::select('*')->where('id', $request->id)->delete();
+            return response()->json($result, 200);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => $th->getMessage()
+            ], 700);
         }
     }
 }
