@@ -2,16 +2,18 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Models\Hora;
 use App\Models\User;
+use App\Models\Fecha;
+use App\Models\Reserva;
+use App\Models\FechaHora;
 use App\Models\UsuarioNR;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use App\Models\Reserva;
-use App\Models\Hora;
-
 
 class AuthController extends Controller
 {
@@ -195,6 +197,91 @@ class AuthController extends Controller
         try {
             $result = Reserva::select('*')->where('id', $request->id)->delete();
             return response()->json($result, 200);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => $th->getMessage()
+            ], 700);
+        }
+    }
+
+    public function horasreservas(Request $request)
+    {
+        try {
+            $result = FechaHora::select('fk_fecha')->where('id', $request->id)->get();
+            $result = FechaHora::select('id_hora')->where('fk_fecha', $result[0]->fk_fecha)->get();
+            $array = array();
+            foreach ($result as $key) {
+                array_push(
+                    $array,
+                    [
+                        'id' => $key->id_hora,
+                        'hora' => Hora::select('hora')->where('id', $key->id_hora)->first()->hora,
+                    ]
+                );
+            }
+            return response()->json($array, 200);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => $th->getMessage()
+            ], 700);
+        }
+    }
+
+    public function reservar(Request $request)
+    {
+        try {
+            $user = UsuarioNR::create([
+                'nombre' => $request->nombre,
+                'apellido' => $request->apellido,
+                'email' => $request->email,
+                'telefono' => $request->telefono,
+                'dni' => $request->dni,
+            ]);
+            $reserva = Reserva::create([
+                'numero_persona' => $request->comensales,
+                'users_id' => null,
+                'menu_id' => $request->menu,
+                'tarjeta_creadito_id' => $request->credito,
+                'usuarionr_id' => $user->id,
+                'mesa_id' => 1,
+                'fecha_fk' => FechaHora::select('fk_fecha')->where('id', $request->id)->get()->first()->fk_fecha,
+                'hora_id' => FechaHora::select('id_hora')->where('id', $request->id)->get()->first()->id_hora,
+            ]);
+            $affected = DB::table('fecha_hora')
+                ->where('id', $request->id)
+                ->update(['estado' => 'reservada']);
+            return response()->json(true, 200);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => $th->getMessage()
+            ], 700);
+        }
+    }
+
+
+    public function eventos()
+    {
+        try {
+            $result = FechaHora::select('fk_fecha', 'id')->where('estado', 'no-reservada')->get();
+            $array = array();
+            $cont = 0;
+            foreach ($result as $key) {
+                array_push(
+                    $array,
+                    [
+                        'title' => 'Disponible',
+                        'id' => $result[$cont]->id,
+                        'start' => $result[$cont]->fk_fecha,
+                        'end' => $result[$cont]->fk_fecha,
+                    ]
+                );
+                $cont++;
+            }
+
+            return response()->json($array, 200);
         } catch (\Throwable $th) {
             return response()->json([
                 'status' => false,
