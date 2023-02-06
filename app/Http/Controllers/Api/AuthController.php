@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Api;
 use App\Models\Hora;
 use App\Models\User;
 use App\Models\Fecha;
+use App\Models\Menu;
 use App\Models\Reserva;
+use App\Models\Personal_access_tokens;
 use App\Models\FechaHora;
 use App\Models\UsuarioNR;
 use Illuminate\Http\Request;
@@ -14,6 +16,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Laravel\Sanctum\PersonalAccessToken;
 
 class AuthController extends Controller
 {
@@ -112,6 +115,32 @@ class AuthController extends Controller
         }
     }
 
+    public function tokenableIDUser(Request $request)
+    {
+        try {
+            $result = PersonalAccessToken::select('tokenable_id')->where('id', $request->id)->first();
+            return response()->json($result, 200);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => $th->getMessage()
+            ], 500);
+        }
+    }
+
+    public function menus()
+    {
+        try {
+            $result = Menu::select('nombre')->get();
+            return response()->json($result, 200);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => $th->getMessage()
+            ], 500);
+        }
+    }
+
     public function reservas()
     {
         try {
@@ -162,6 +191,7 @@ class AuthController extends Controller
     public function misreservas(Request $request)
     {
         try {
+
             $result = Reserva::select('*')->where('users_id', $request->id)->get();
             $array = array();
             foreach ($result as $key) {
