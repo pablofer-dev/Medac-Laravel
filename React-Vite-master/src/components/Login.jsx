@@ -72,13 +72,13 @@ export default function Login() {
               axios.post(`https://daw202.medacarena.es/api/auth/register?name=${nombre}&apellido=${apellido}&telefono=${telefono}&email=${email}&password=${password}`, {
                 headers: {
                   'Content-Type': 'application/json',
-                  'Access-Control-Allow-Origin': 'http://127.0.0.1:5173'
+
                 }
               }).then((res) => {
                 axios.post(`https://daw202.medacarena.es/api/auth/login?email=${email}&password=${password}`, {
                   headers: {
                     'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': 'http://127.0.0.1:5173'
+  
                   }
                 }).then((res) => {
                   const tokenRes = res.data.token;
@@ -87,7 +87,7 @@ export default function Login() {
                   axios.post(`https://daw202.medacarena.es/api/auth/tokenableIDUser?id=${id}`, {
                     headers: {
                       'Content-Type': 'application/json',
-                      'Access-Control-Allow-Origin': 'http://127.0.0.1:5173'
+    
                     }
                   }).then((res) => {
                     dispatch({
@@ -162,7 +162,6 @@ export default function Login() {
             axios.post(`https://daw202.medacarena.es/api/auth/login?email=${email}&password=${password}`, {
               headers: {
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': 'http://127.0.0.1:5173'
               }
             }).then((res) => {
 
@@ -172,7 +171,7 @@ export default function Login() {
               axios.post(`https://daw202.medacarena.es/api/auth/tokenableIDUser?id=${id}`, {
                 headers: {
                   'Content-Type': 'application/json',
-                  'Access-Control-Allow-Origin': 'http://127.0.0.1:5173'
+
                 }
               }).then((res) => {
                 dispatch({

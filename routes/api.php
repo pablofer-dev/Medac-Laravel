@@ -25,5 +25,11 @@ Route::delete('auth/deletereservas', [AuthController::class, 'deletereservas']);
 Route::get('auth/eventos', [AuthController::class, 'eventos']);
 Route::get('auth/horasreservas', [AuthController::class, 'horasreservas']);
 Route::get('auth/reservar', [AuthController::class, 'reservar']);
+
+Route::get('auth/infoUserLogeado', [AuthController::class, 'infoUserLogeado']);
+Route::get('auth/reservarLogeado', [AuthController::class, 'reservarLogeado']);
+
+
+
 Route::post('auth/tokenableIDUser', [AuthController::class, 'tokenableIDUser']);
 Route::get('auth/menus', [AuthController::class, 'menus']);
