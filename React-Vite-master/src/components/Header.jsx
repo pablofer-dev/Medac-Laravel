@@ -58,7 +58,15 @@ export default function Header() {
                                     <p className="text-base font-medium text-gray-500 hover:text-gray-900">Inicio</p>
                                 </NavLink>
                                 <NavLink to="/" >
-                                    <p className="text-base font-medium text-gray-500 hover:text-gray-900">Menu</p>
+                                    <p className="text-base font-medium text-gray-500 hover:text-gray-900" onClick={() => {
+                                        scrollTo({
+                                            top: 500,
+                                            behavior: "smooth"
+                                        })
+                                    }}>Menu</p>
+                                </NavLink>
+                                <NavLink to="/contacto" >
+                                    <p className="text-base font-medium text-gray-500 hover:text-gray-900">Contacto</p>
                                 </NavLink>
 
                                 {id ? <NavLink to="/mis-reservas" >
