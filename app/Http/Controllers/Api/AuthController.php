@@ -298,46 +298,6 @@ class AuthController extends Controller
         }
     }
     
-
-    
-    public function infoUserLogeado(Request $request)
-    {
-        try {
-            $result = User::select('name', 'apellido', 'telefono', 'email')->where('id', $request->id)->get();
-            return response()->json($result, 200);
-        } catch (\Throwable $th) {
-            return response()->json([
-                'status' => false,
-                'message' => $th->getMessage()
-            ], 700);
-        }
-    }
-
-    public function reservarLogeado(Request $request)
-    {
-        try {
-            $reserva = Reserva::create([
-                'numero_persona' => $request->comensales,
-                'users_id' => $request->usuario,
-                'menu_id' => $request->menu,
-                'tarjeta_creadito_id' => $request->credito,
-                'usuarionr_id' => null,
-                'mesa_id' => 1,
-                'fecha_fk' => FechaHora::select('fk_fecha')->where('id', $request->id)->get()->first()->fk_fecha,
-                'hora_id' => FechaHora::select('id_hora')->where('id', $request->id)->get()->first()->id_hora,
-            ]);
-            $affected = DB::table('fecha_hora')
-                ->where('id', $request->id)
-                ->update(['estado' => 'reservada']);
-            return response()->json(true, 200);
-        } catch (\Throwable $th) {
-            return response()->json([
-                'status' => false,
-                'message' => $th->getMessage()
-            ], 700);
-        }
-    }
-
     public function reservar(Request $request)
     {
         try {

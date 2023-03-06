@@ -19,9 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::post('auth/login', [AuthController::class, 'loginUser']);
 Route::post('auth/register', [AuthController::class, 'createUser']);
-
 Route::post('auth/reservas', [AuthController::class, 'reservas']);
-
 Route::post('auth/misreservas', [AuthController::class, 'misreservas']);
 Route::delete('auth/deletereservas', [AuthController::class, 'deletereservas']);
 Route::get('auth/eventos', [AuthController::class, 'eventos']);
