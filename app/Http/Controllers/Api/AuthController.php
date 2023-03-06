@@ -25,6 +25,18 @@ class AuthController extends Controller
      * @param Request $request
      * @return User
      */
+        public function infoUserLogeado(Request $request)
+    {
+        try {
+            $result = User::select('name', 'apellido', 'telefono', 'email')->where('id', $request->id)->get();
+            return response()->json($result, 200);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => $th->getMessage()
+            ], 700);
+        }
+    }
     public function createUser(Request $request)
     {
         try {
