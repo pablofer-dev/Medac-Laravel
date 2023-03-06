@@ -13,6 +13,7 @@ import Contacto from "./Contacto";
 
 export default function Header() {
     const { id } = useSelector(state => state.login);
+    
     return (
         <BrowserRouter>
             <div className="bg-gray-100">

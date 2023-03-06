@@ -13,7 +13,10 @@ export default function Inicio() {
                             <a href="/reservar" class="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Haz una reserva</a>
                         </div>
                         <div>
-                            <img class="rounded-lg shadow-lg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/NCI_Visuals_Food_Hamburger.jpg/640px-NCI_Visuals_Food_Hamburger.jpg" alt="Imagen de platillo"/>
+                            <div class="relative rounded-lg overflow-hidden shadow-lg">
+                                <div class="absolute inset-0 bg-gradient-to-br from-pink-500 to-orange-400 opacity-60"></div>
+                                <img class="w-full h-auto transform transition duration-500 hover:scale-110" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/NCI_Visuals_Food_Hamburger.jpg/640px-NCI_Visuals_Food_Hamburger.jpg" alt="Imagen de platillo" />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -23,95 +26,66 @@ export default function Inicio() {
                     <h2 class="text-3xl sm:text-5xl font-bold mb-4">Nuestros platillos más populares</h2>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <div class="rounded-lg overflow-hidden shadow-lg">
-                            <img class="w-full" src="https://eldiariony.com/wp-content/uploads/sites/2/2023/01/Chow-mein-shutterstock_1400786078.jpg?quality=75&strip=all&w=1200" alt="Imagen de platillo"/>
-                                <div class="p-4">
-                                    <h3 class="text-xl font-bold mb-2">Taco al pastor</h3>
-                                    <p class="text-gray-600 leading-relaxed mb-4">Taco de carne de cerdo adobada, cebolla, cilantro, piña y salsa.</p>
-                                    <div class="text-right">
-                                        <span class=" from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-bold">$5.99</span>
-                                    </div>
+                            <img class="w-full transform transition duration-500 hover:scale-110" src="https://eldiariony.com/wp-content/uploads/sites/2/2023/01/Chow-mein-shutterstock_1400786078.jpg?quality=75&strip=all&w=1200" alt="Imagen de platillo" />
+                            <div class="p-4">
+                                <h3 class="text-xl font-bold mb-2">Taco al pastor</h3>
+                                <p class="text-gray-600 leading-relaxed mb-4">Taco de carne de cerdo adobada, cebolla, cilantro, piña y salsa.</p>
+                                <div class="text-right">
+                                    <span class=" from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-bold">$5.99</span>
                                 </div>
+                            </div>
                         </div>
                         <div class="rounded-lg overflow-hidden shadow-lg">
-                            <img class="w-full" src="https://media.traveler.es/photos/6137808dfd8ea62e2db32c80/4:3/w_1400,h_1050,c_limit/203614.jpg" alt="Imagen de platillo"/>
-                                <div class="p-4">
-                                    <h3 class="text-xl font-bold mb-2">Taco al pastor</h3>
-                                    <p class="text-gray-600 leading-relaxed mb-4">Taco de carne de cerdo adobada, cebolla, cilantro, piña y salsa.</p>
-                                    <div class="text-right">
-                                        <span class=" from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-bold">$5.99</span>
-                                    </div>
+                            <img class="w-full transform transition duration-500 hover:scale-110" src="https://eldiariony.com/wp-content/uploads/sites/2/2023/01/Chow-mein-shutterstock_1400786078.jpg?quality=75&strip=all&w=1200" alt="Imagen de platillo" />
+                            <div class="p-4">
+                                <h3 class="text-xl font-bold mb-2">Taco al pastor</h3>
+                                <p class="text-gray-600 leading-relaxed mb-4">Taco de carne de cerdo adobada, cebolla, cilantro, piña y salsa.</p>
+                                <div class="text-right">
+                                    <span class=" from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-bold">$5.99</span>
                                 </div>
+                            </div>
                         </div>
                         <div class="rounded-lg overflow-hidden shadow-lg">
-                            <img class="w-full" src="https://restaurantechinacity.com/wp-content/uploads/2020/05/IMG_20200524_172020-scaled.jpg" alt="Imagen de platillo"/>
-                                <div class="p-4">
-                                    <h3 class="text-xl font-bold mb-2">Taco al pastor</h3>
-                                    <p class="text-gray-600 leading-relaxed mb-4">Taco de carne de cerdo adobada, cebolla, cilantro, piña y salsa.</p>
-                                    <div class="text-right">
-                                        <span class=" from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-bold">$5.99</span>
-                                    </div>
+                            <img class="w-full transform transition duration-500 hover:scale-110" src="https://eldiariony.com/wp-content/uploads/sites/2/2023/01/Chow-mein-shutterstock_1400786078.jpg?quality=75&strip=all&w=1200" alt="Imagen de platillo" />
+                            <div class="p-4">
+                                <h3 class="text-xl font-bold mb-2">Taco al pastor</h3>
+                                <p class="text-gray-600 leading-relaxed mb-4">Taco de carne de cerdo adobada, cebolla, cilantro, piña y salsa.</p>
+                                <div class="text-right">
+                                    <span class=" from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-bold">$5.99</span>
                                 </div>
+                            </div>
                         </div>
                         <div class="rounded-lg overflow-hidden shadow-lg">
-                            <img class="w-full" src="https://www.cocinacaserayfacil.net/wp-content/uploads/2019/11/Comida-china.jpg" alt="Imagen de platillo"/>
-                                <div class="p-4">
-                                    <h3 class="text-xl font-bold mb-2">Taco al pastor</h3>
-                                    <p class="text-gray-600 leading-relaxed mb-4">Taco de carne de cerdo adobada, cebolla, cilantro, piña y salsa.</p>
-                                    <div class="text-right">
-                                        <span class=" from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-bold">$5.99</span>
-                                    </div>
+                            <img class="w-full transform transition duration-500 hover:scale-110" src="https://eldiariony.com/wp-content/uploads/sites/2/2023/01/Chow-mein-shutterstock_1400786078.jpg?quality=75&strip=all&w=1200" alt="Imagen de platillo" />
+                            <div class="p-4">
+                                <h3 class="text-xl font-bold mb-2">Taco al pastor</h3>
+                                <p class="text-gray-600 leading-relaxed mb-4">Taco de carne de cerdo adobada, cebolla, cilantro, piña y salsa.</p>
+                                <div class="text-right">
+                                    <span class=" from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-bold">$5.99</span>
                                 </div>
+                            </div>
                         </div>
                         <div class="rounded-lg overflow-hidden shadow-lg">
-                            <img class="w-full" src="https://www.cocinacaserayfacil.net/wp-content/uploads/2019/11/Comida-china.jpg" alt="Imagen de platillo"/>
-                                <div class="p-4">
-                                    <h3 class="text-xl font-bold mb-2">Taco al pastor</h3>
-                                    <p class="text-gray-600 leading-relaxed mb-4">Taco de carne de cerdo adobada, cebolla, cilantro, piña y salsa.</p>
-                                    <div class="text-right">
-                                        <span class=" from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-bold">$5.99</span>
-                                    </div>
+                            <img class="w-full transform transition duration-500 hover:scale-110" src="https://eldiariony.com/wp-content/uploads/sites/2/2023/01/Chow-mein-shutterstock_1400786078.jpg?quality=75&strip=all&w=1200" alt="Imagen de platillo" />
+                            <div class="p-4">
+                                <h3 class="text-xl font-bold mb-2">Taco al pastor</h3>
+                                <p class="text-gray-600 leading-relaxed mb-4">Taco de carne de cerdo adobada, cebolla, cilantro, piña y salsa.</p>
+                                <div class="text-right">
+                                    <span class=" from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-bold">$5.99</span>
                                 </div>
+                            </div>
                         </div>
                         <div class="rounded-lg overflow-hidden shadow-lg">
-                            <img class="w-full" src="https://www.cocinacaserayfacil.net/wp-content/uploads/2019/11/Comida-china.jpg" alt="Imagen de platillo"/>
-                                <div class="p-4">
-                                    <h3 class="text-xl font-bold mb-2">Taco al pastor</h3>
-                                    <p class="text-gray-600 leading-relaxed mb-4">Taco de carne de cerdo adobada, cebolla, cilantro, piña y salsa.</p>
-                                    <div class="text-right">
-                                        <span class=" from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-bold">$5.99</span>
-                                    </div>
+                            <img class="w-full transform transition duration-500 hover:scale-110" src="https://eldiariony.com/wp-content/uploads/sites/2/2023/01/Chow-mein-shutterstock_1400786078.jpg?quality=75&strip=all&w=1200" alt="Imagen de platillo" />
+                            <div class="p-4">
+                                <h3 class="text-xl font-bold mb-2">Taco al pastor</h3>
+                                <p class="text-gray-600 leading-relaxed mb-4">Taco de carne de cerdo adobada, cebolla, cilantro, piña y salsa.</p>
+                                <div class="text-right">
+                                    <span class=" from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-bold">$5.99</span>
                                 </div>
+                            </div>
                         </div>
-                        <div class="rounded-lg overflow-hidden shadow-lg">
-                            <img class="w-full" src="https://www.cocinacaserayfacil.net/wp-content/uploads/2019/11/Comida-china.jpg" alt="Imagen de platillo"/>
-                                <div class="p-4">
-                                    <h3 class="text-xl font-bold mb-2">Taco al pastor</h3>
-                                    <p class="text-gray-600 leading-relaxed mb-4">Taco de carne de cerdo adobada, cebolla, cilantro, piña y salsa.</p>
-                                    <div class="text-right">
-                                        <span class=" from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-bold">$5.99</span>
-                                    </div>
-                                </div>
-                        </div>
-                        <div class="rounded-lg overflow-hidden shadow-lg">
-                            <img class="w-full" src="https://www.cocinacaserayfacil.net/wp-content/uploads/2019/11/Comida-china.jpg" alt="Imagen de platillo"/>
-                                <div class="p-4">
-                                    <h3 class="text-xl font-bold mb-2">Taco al pastor</h3>
-                                    <p class="text-gray-600 leading-relaxed mb-4">Taco de carne de cerdo adobada, cebolla, cilantro, piña y salsa.</p>
-                                    <div class="text-right">
-                                        <span class=" from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-bold">$5.99</span>
-                                    </div>
-                                </div>
-                        </div>
-                        <div class="rounded-lg overflow-hidden shadow-lg">
-                            <img class="w-full" src="https://www.cocinacaserayfacil.net/wp-content/uploads/2019/11/Comida-china.jpg" alt="Imagen de platillo"/>
-                                <div class="p-4">
-                                    <h3 class="text-xl font-bold mb-2">Taco al pastor</h3>
-                                    <p class="text-gray-600 leading-relaxed mb-4">Taco de carne de cerdo adobada, cebolla, cilantro, piña y salsa.</p>
-                                    <div class="text-right">
-                                        <span class=" from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-bold">$5.99</span>
-                                    </div>
-                                </div>
-                        </div>
+
 
                     </div>
                 </div>
